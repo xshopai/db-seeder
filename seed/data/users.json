@@ -1,0 +1,53 @@
+[
+  {
+    "email": "guest@xshopai.com",
+    "password": "Guest123!",
+    "firstName": "Guest",
+    "lastName": "User",
+    "phoneNumber": "+1-555-0001",
+    "roles": ["customer"],
+    "isEmailVerified": true,
+    "isActive": true,
+    "addresses": [
+      {
+        "type": "shipping",
+        "addressLine1": "123 Demo Street",
+        "city": "San Francisco",
+        "state": "CA",
+        "zipCode": "94102",
+        "country": "United States",
+        "phone": "+1-555-0001",
+        "isDefault": true
+      }
+    ],
+    "paymentMethods": [],
+    "wishlist": [],
+    "preferences": {
+      "theme": "light",
+      "notifications": {
+        "email": true,
+        "sms": false
+      }
+    }
+  },
+  {
+    "email": "admin@xshopai.com",
+    "password": "Admin123!",
+    "firstName": "Admin",
+    "lastName": "User",
+    "phoneNumber": "+1-555-0002",
+    "roles": ["admin"],
+    "isEmailVerified": true,
+    "isActive": true,
+    "addresses": [],
+    "paymentMethods": [],
+    "wishlist": [],
+    "preferences": {
+      "theme": "dark",
+      "notifications": {
+        "email": true,
+        "sms": true
+      }
+    }
+  }
+]

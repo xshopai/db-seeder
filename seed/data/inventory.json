@@ -1,0 +1,202 @@
+[
+  {
+    "sku": "WOM-CLO-TOP-001",
+    "quantity_available": 150,
+    "quantity_reserved": 0,
+    "reorder_level": 20,
+    "max_stock": 300,
+    "cost_per_unit": 12.0
+  },
+  {
+    "sku": "WOM-CLO-DRS-001",
+    "quantity_available": 75,
+    "quantity_reserved": 0,
+    "reorder_level": 10,
+    "max_stock": 150,
+    "cost_per_unit": 35.0
+  },
+  {
+    "sku": "WOM-CLO-PNT-001",
+    "quantity_available": 100,
+    "quantity_reserved": 0,
+    "reorder_level": 15,
+    "max_stock": 200,
+    "cost_per_unit": 28.0
+  },
+  {
+    "sku": "WOM-ACC-JWL-001",
+    "quantity_available": 200,
+    "quantity_reserved": 0,
+    "reorder_level": 25,
+    "max_stock": 400,
+    "cost_per_unit": 15.0
+  },
+  {
+    "sku": "WOM-ACC-BAG-001",
+    "quantity_available": 50,
+    "quantity_reserved": 0,
+    "reorder_level": 8,
+    "max_stock": 100,
+    "cost_per_unit": 55.0
+  },
+  {
+    "sku": "MEN-CLO-SHR-001",
+    "quantity_available": 120,
+    "quantity_reserved": 0,
+    "reorder_level": 15,
+    "max_stock": 250,
+    "cost_per_unit": 25.0
+  },
+  {
+    "sku": "MEN-CLO-PNT-001",
+    "quantity_available": 90,
+    "quantity_reserved": 0,
+    "reorder_level": 12,
+    "max_stock": 180,
+    "cost_per_unit": 22.0
+  },
+  {
+    "sku": "MEN-ACC-BLT-001",
+    "quantity_available": 180,
+    "quantity_reserved": 0,
+    "reorder_level": 20,
+    "max_stock": 350,
+    "cost_per_unit": 15.0
+  },
+  {
+    "sku": "MEN-ACC-WTC-001",
+    "quantity_available": 40,
+    "quantity_reserved": 0,
+    "reorder_level": 5,
+    "max_stock": 80,
+    "cost_per_unit": 85.0
+  },
+  {
+    "sku": "KID-CLO-TOP-001",
+    "quantity_available": 200,
+    "quantity_reserved": 0,
+    "reorder_level": 30,
+    "max_stock": 400,
+    "cost_per_unit": 8.0
+  },
+  {
+    "sku": "KID-CLO-JKT-001",
+    "quantity_available": 80,
+    "quantity_reserved": 0,
+    "reorder_level": 10,
+    "max_stock": 160,
+    "cost_per_unit": 18.0
+  },
+  {
+    "sku": "KID-FTW-SNK-001",
+    "quantity_available": 100,
+    "quantity_reserved": 0,
+    "reorder_level": 15,
+    "max_stock": 200,
+    "cost_per_unit": 16.0
+  },
+  {
+    "sku": "ELC-MOB-PHN-001",
+    "quantity_available": 30,
+    "quantity_reserved": 0,
+    "reorder_level": 5,
+    "max_stock": 60,
+    "cost_per_unit": 650.0
+  },
+  {
+    "sku": "ELC-AUD-HDP-001",
+    "quantity_available": 60,
+    "quantity_reserved": 0,
+    "reorder_level": 10,
+    "max_stock": 120,
+    "cost_per_unit": 180.0
+  },
+  {
+    "sku": "ELC-CMP-LAP-001",
+    "quantity_available": 25,
+    "quantity_reserved": 0,
+    "reorder_level": 5,
+    "max_stock": 50,
+    "cost_per_unit": 850.0
+  },
+  {
+    "sku": "ELC-CMP-TAB-001",
+    "quantity_available": 35,
+    "quantity_reserved": 0,
+    "reorder_level": 5,
+    "max_stock": 70,
+    "cost_per_unit": 350.0
+  },
+  {
+    "sku": "ELC-GMG-CON-001",
+    "quantity_available": 45,
+    "quantity_reserved": 0,
+    "reorder_level": 8,
+    "max_stock": 90,
+    "cost_per_unit": 320.0
+  },
+  {
+    "sku": "SPT-FTW-RUN-001",
+    "quantity_available": 110,
+    "quantity_reserved": 0,
+    "reorder_level": 15,
+    "max_stock": 220,
+    "cost_per_unit": 55.0
+  },
+  {
+    "sku": "SPT-FTW-BSK-001",
+    "quantity_available": 85,
+    "quantity_reserved": 0,
+    "reorder_level": 12,
+    "max_stock": 170,
+    "cost_per_unit": 65.0
+  },
+  {
+    "sku": "SPT-APP-JKT-001",
+    "quantity_available": 70,
+    "quantity_reserved": 0,
+    "reorder_level": 10,
+    "max_stock": 140,
+    "cost_per_unit": 35.0
+  },
+  {
+    "sku": "SPT-APP-SHT-001",
+    "quantity_available": 130,
+    "quantity_reserved": 0,
+    "reorder_level": 20,
+    "max_stock": 260,
+    "cost_per_unit": 14.0
+  },
+  {
+    "sku": "BOK-FIC-CNT-001",
+    "quantity_available": 250,
+    "quantity_reserved": 0,
+    "reorder_level": 30,
+    "max_stock": 500,
+    "cost_per_unit": 7.0
+  },
+  {
+    "sku": "BOK-FIC-FNT-001",
+    "quantity_available": 180,
+    "quantity_reserved": 0,
+    "reorder_level": 25,
+    "max_stock": 360,
+    "cost_per_unit": 8.5
+  },
+  {
+    "sku": "BOK-NON-SLF-001",
+    "quantity_available": 300,
+    "quantity_reserved": 0,
+    "reorder_level": 40,
+    "max_stock": 600,
+    "cost_per_unit": 6.0
+  },
+  {
+    "sku": "BOK-NON-BIO-001",
+    "quantity_available": 150,
+    "quantity_reserved": 0,
+    "reorder_level": 20,
+    "max_stock": 300,
+    "cost_per_unit": 10.0
+  }
+]

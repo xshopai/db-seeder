@@ -1,0 +1,100 @@
+[
+  {
+    "customerId": "user_1",
+    "items": [
+      {
+        "productId": "product_1",
+        "quantity": 1,
+        "unitPrice": 29.99
+      },
+      {
+        "productId": "product_4",
+        "quantity": 1,
+        "unitPrice": 45.99
+      }
+    ],
+    "status": 0,
+    "paymentStatus": 0,
+    "shippingStatus": 0,
+    "notes": "Order placed, awaiting payment confirmation"
+  },
+  {
+    "customerId": "user_2",
+    "items": [
+      {
+        "productId": "product_2",
+        "quantity": 1,
+        "unitPrice": 79.99
+      },
+      {
+        "productId": "product_5",
+        "quantity": 1,
+        "unitPrice": 159.99
+      }
+    ],
+    "status": 1,
+    "paymentStatus": 1,
+    "shippingStatus": 0,
+    "notes": "Payment received, preparing shipment"
+  },
+  {
+    "customerId": "user_3",
+    "items": [
+      {
+        "productId": "product_6",
+        "quantity": 1,
+        "unitPrice": 59.99
+      },
+      {
+        "productId": "product_8",
+        "quantity": 1,
+        "unitPrice": 199.99
+      }
+    ],
+    "status": 2,
+    "paymentStatus": 1,
+    "shippingStatus": 1,
+    "shippedDate": "2025-10-22T10:30:00.000Z",
+    "notes": "Order shipped, tracking number provided"
+  },
+  {
+    "customerId": "user_4",
+    "items": [
+      {
+        "productId": "product_3",
+        "quantity": 1,
+        "unitPrice": 89.99
+      },
+      {
+        "productId": "product_7",
+        "quantity": 1,
+        "unitPrice": 79.99
+      }
+    ],
+    "status": 3,
+    "paymentStatus": 1,
+    "shippingStatus": 2,
+    "deliveredDate": "2025-09-25T12:15:00.000Z",
+    "notes": "Love the style and comfort"
+  },
+  {
+    "customerId": "user_5",
+    "items": [
+      {
+        "productId": "product_9",
+        "quantity": 1,
+        "unitPrice": 39.99
+      },
+      {
+        "productId": "product_10",
+        "quantity": 1,
+        "unitPrice": 49.99
+      }
+    ],
+    "status": 3,
+    "paymentStatus": 1,
+    "shippingStatus": 2,
+    "deliveredDate": "2025-10-08T09:20:00.000Z",
+    "notes": "Kids love the designs, great value"
+  }
+]

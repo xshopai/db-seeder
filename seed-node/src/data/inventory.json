@@ -1,0 +1,802 @@
+[
+  {
+    "sku": "ANT-WOM-CLO-001",
+    "quantity_available": 129,
+    "quantity_reserved": 0,
+    "reorder_level": 12,
+    "max_stock": 387,
+    "cost_per_unit": 16.35
+  },
+  {
+    "sku": "H&M-WOM-CLO-002",
+    "quantity_available": 88,
+    "quantity_reserved": 0,
+    "reorder_level": 8,
+    "max_stock": 264,
+    "cost_per_unit": 20.84
+  },
+  {
+    "sku": "ZAR-WOM-CLO-003",
+    "quantity_available": 110,
+    "quantity_reserved": 0,
+    "reorder_level": 11,
+    "max_stock": 330,
+    "cost_per_unit": 19.14
+  },
+  {
+    "sku": "H&M-WOM-CLO-004",
+    "quantity_available": 59,
+    "quantity_reserved": 0,
+    "reorder_level": 5,
+    "max_stock": 177,
+    "cost_per_unit": 18.11
+  },
+  {
+    "sku": "MEJ-WOM-CLO-005",
+    "quantity_available": 70,
+    "quantity_reserved": 0,
+    "reorder_level": 7,
+    "max_stock": 210,
+    "cost_per_unit": 21.49
+  },
+  {
+    "sku": "ANT-WOM-CLO-006",
+    "quantity_available": 158,
+    "quantity_reserved": 0,
+    "reorder_level": 15,
+    "max_stock": 474,
+    "cost_per_unit": 24.44
+  },
+  {
+    "sku": "MAD-WOM-CLO-007",
+    "quantity_available": 180,
+    "quantity_reserved": 0,
+    "reorder_level": 18,
+    "max_stock": 540,
+    "cost_per_unit": 26.98
+  },
+  {
+    "sku": "H&M-WOM-CLO-008",
+    "quantity_available": 149,
+    "quantity_reserved": 0,
+    "reorder_level": 14,
+    "max_stock": 447,
+    "cost_per_unit": 20.55
+  },
+  {
+    "sku": "MAD-WOM-CLO-009",
+    "quantity_available": 189,
+    "quantity_reserved": 0,
+    "reorder_level": 18,
+    "max_stock": 567,
+    "cost_per_unit": 16.53
+  },
+  {
+    "sku": "MEJ-WOM-CLO-010",
+    "quantity_available": 58,
+    "quantity_reserved": 0,
+    "reorder_level": 5,
+    "max_stock": 174,
+    "cost_per_unit": 19.81
+  },
+  {
+    "sku": "MEJ-WOM-CLO-011",
+    "quantity_available": 175,
+    "quantity_reserved": 0,
+    "reorder_level": 17,
+    "max_stock": 525,
+    "cost_per_unit": 16.53
+  },
+  {
+    "sku": "H&M-WOM-CLO-012",
+    "quantity_available": 188,
+    "quantity_reserved": 0,
+    "reorder_level": 18,
+    "max_stock": 564,
+    "cost_per_unit": 19.46
+  },
+  {
+    "sku": "H&M-WOM-CLO-013",
+    "quantity_available": 194,
+    "quantity_reserved": 0,
+    "reorder_level": 19,
+    "max_stock": 582,
+    "cost_per_unit": 14.48
+  },
+  {
+    "sku": "REF-WOM-CLO-014",
+    "quantity_available": 138,
+    "quantity_reserved": 0,
+    "reorder_level": 13,
+    "max_stock": 414,
+    "cost_per_unit": 14.99
+  },
+  {
+    "sku": "ANT-WOM-CLO-015",
+    "quantity_available": 99,
+    "quantity_reserved": 0,
+    "reorder_level": 9,
+    "max_stock": 297,
+    "cost_per_unit": 15.04
+  },
+  {
+    "sku": "MEJ-WOM-CLO-016",
+    "quantity_available": 168,
+    "quantity_reserved": 0,
+    "reorder_level": 16,
+    "max_stock": 504,
+    "cost_per_unit": 22.41
+  },
+  {
+    "sku": "ANT-WOM-ACC-017",
+    "quantity_available": 192,
+    "quantity_reserved": 0,
+    "reorder_level": 19,
+    "max_stock": 576,
+    "cost_per_unit": 17.66
+  },
+  {
+    "sku": "REF-WOM-ACC-018",
+    "quantity_available": 139,
+    "quantity_reserved": 0,
+    "reorder_level": 13,
+    "max_stock": 417,
+    "cost_per_unit": 19.98
+  },
+  {
+    "sku": "EVE-WOM-ACC-019",
+    "quantity_available": 143,
+    "quantity_reserved": 0,
+    "reorder_level": 14,
+    "max_stock": 429,
+    "cost_per_unit": 22.76
+  },
+  {
+    "sku": "H&M-WOM-ACC-020",
+    "quantity_available": 175,
+    "quantity_reserved": 0,
+    "reorder_level": 17,
+    "max_stock": 525,
+    "cost_per_unit": 17.64
+  },
+  {
+    "sku": "ZAR-WOM-ACC-021",
+    "quantity_available": 89,
+    "quantity_reserved": 0,
+    "reorder_level": 8,
+    "max_stock": 267,
+    "cost_per_unit": 22.19
+  },
+  {
+    "sku": "EVE-WOM-ACC-022",
+    "quantity_available": 149,
+    "quantity_reserved": 0,
+    "reorder_level": 14,
+    "max_stock": 447,
+    "cost_per_unit": 20.37
+  },
+  {
+    "sku": "EVE-WOM-ACC-023",
+    "quantity_available": 106,
+    "quantity_reserved": 0,
+    "reorder_level": 10,
+    "max_stock": 318,
+    "cost_per_unit": 25.52
+  },
+  {
+    "sku": "FOS-WOM-ACC-024",
+    "quantity_available": 100,
+    "quantity_reserved": 0,
+    "reorder_level": 10,
+    "max_stock": 300,
+    "cost_per_unit": 12.15
+  },
+  {
+    "sku": "H&M-WOM-ACC-025",
+    "quantity_available": 91,
+    "quantity_reserved": 0,
+    "reorder_level": 9,
+    "max_stock": 273,
+    "cost_per_unit": 17.51
+  },
+  {
+    "sku": "EVE-WOM-ACC-026",
+    "quantity_available": 183,
+    "quantity_reserved": 0,
+    "reorder_level": 18,
+    "max_stock": 549,
+    "cost_per_unit": 17.33
+  },
+  {
+    "sku": "MEJ-WOM-ACC-027",
+    "quantity_available": 173,
+    "quantity_reserved": 0,
+    "reorder_level": 17,
+    "max_stock": 519,
+    "cost_per_unit": 15.99
+  },
+  {
+    "sku": "H&M-WOM-ACC-028",
+    "quantity_available": 114,
+    "quantity_reserved": 0,
+    "reorder_level": 11,
+    "max_stock": 342,
+    "cost_per_unit": 17.79
+  },
+  {
+    "sku": "J.C-MEN-CLO-029",
+    "quantity_available": 129,
+    "quantity_reserved": 0,
+    "reorder_level": 12,
+    "max_stock": 387,
+    "cost_per_unit": 13.84
+  },
+  {
+    "sku": "CIT-MEN-CLO-030",
+    "quantity_available": 51,
+    "quantity_reserved": 0,
+    "reorder_level": 5,
+    "max_stock": 153,
+    "cost_per_unit": 27.24
+  },
+  {
+    "sku": "BAN-MEN-CLO-031",
+    "quantity_available": 63,
+    "quantity_reserved": 0,
+    "reorder_level": 6,
+    "max_stock": 189,
+    "cost_per_unit": 27.23
+  },
+  {
+    "sku": "J.C-MEN-CLO-032",
+    "quantity_available": 125,
+    "quantity_reserved": 0,
+    "reorder_level": 12,
+    "max_stock": 375,
+    "cost_per_unit": 27.95
+  },
+  {
+    "sku": "BRO-MEN-CLO-033",
+    "quantity_available": 115,
+    "quantity_reserved": 0,
+    "reorder_level": 11,
+    "max_stock": 345,
+    "cost_per_unit": 24.65
+  },
+  {
+    "sku": "BRO-MEN-CLO-034",
+    "quantity_available": 89,
+    "quantity_reserved": 0,
+    "reorder_level": 8,
+    "max_stock": 267,
+    "cost_per_unit": 23.77
+  },
+  {
+    "sku": "BAN-MEN-CLO-035",
+    "quantity_available": 146,
+    "quantity_reserved": 0,
+    "reorder_level": 14,
+    "max_stock": 438,
+    "cost_per_unit": 12.82
+  },
+  {
+    "sku": "CIT-MEN-CLO-036",
+    "quantity_available": 112,
+    "quantity_reserved": 0,
+    "reorder_level": 11,
+    "max_stock": 336,
+    "cost_per_unit": 23.56
+  },
+  {
+    "sku": "CIT-MEN-CLO-037",
+    "quantity_available": 137,
+    "quantity_reserved": 0,
+    "reorder_level": 13,
+    "max_stock": 411,
+    "cost_per_unit": 13.75
+  },
+  {
+    "sku": "BON-MEN-CLO-038",
+    "quantity_available": 64,
+    "quantity_reserved": 0,
+    "reorder_level": 6,
+    "max_stock": 192,
+    "cost_per_unit": 26.65
+  },
+  {
+    "sku": "J.C-MEN-CLO-039",
+    "quantity_available": 89,
+    "quantity_reserved": 0,
+    "reorder_level": 8,
+    "max_stock": 267,
+    "cost_per_unit": 27.46
+  },
+  {
+    "sku": "BAN-MEN-CLO-040",
+    "quantity_available": 142,
+    "quantity_reserved": 0,
+    "reorder_level": 14,
+    "max_stock": 426,
+    "cost_per_unit": 26.22
+  },
+  {
+    "sku": "BRO-MEN-ACC-041",
+    "quantity_available": 79,
+    "quantity_reserved": 0,
+    "reorder_level": 7,
+    "max_stock": 237,
+    "cost_per_unit": 13.95
+  },
+  {
+    "sku": "ALL-MEN-ACC-042",
+    "quantity_available": 68,
+    "quantity_reserved": 0,
+    "reorder_level": 6,
+    "max_stock": 204,
+    "cost_per_unit": 25.66
+  },
+  {
+    "sku": "CIT-MEN-ACC-043",
+    "quantity_available": 54,
+    "quantity_reserved": 0,
+    "reorder_level": 5,
+    "max_stock": 162,
+    "cost_per_unit": 26.24
+  },
+  {
+    "sku": "CIT-MEN-ACC-044",
+    "quantity_available": 55,
+    "quantity_reserved": 0,
+    "reorder_level": 5,
+    "max_stock": 165,
+    "cost_per_unit": 17.03
+  },
+  {
+    "sku": "BRO-MEN-ACC-045",
+    "quantity_available": 141,
+    "quantity_reserved": 0,
+    "reorder_level": 14,
+    "max_stock": 423,
+    "cost_per_unit": 15.66
+  },
+  {
+    "sku": "BRO-MEN-ACC-046",
+    "quantity_available": 60,
+    "quantity_reserved": 0,
+    "reorder_level": 6,
+    "max_stock": 180,
+    "cost_per_unit": 17.07
+  },
+  {
+    "sku": "ALL-MEN-ACC-047",
+    "quantity_available": 121,
+    "quantity_reserved": 0,
+    "reorder_level": 12,
+    "max_stock": 363,
+    "cost_per_unit": 13.19
+  },
+  {
+    "sku": "BAN-MEN-ACC-048",
+    "quantity_available": 62,
+    "quantity_reserved": 0,
+    "reorder_level": 6,
+    "max_stock": 186,
+    "cost_per_unit": 20.33
+  },
+  {
+    "sku": "ALL-MEN-ACC-049",
+    "quantity_available": 79,
+    "quantity_reserved": 0,
+    "reorder_level": 7,
+    "max_stock": 237,
+    "cost_per_unit": 15.28
+  },
+  {
+    "sku": "GAP-KID-CLO-050",
+    "quantity_available": 79,
+    "quantity_reserved": 0,
+    "reorder_level": 7,
+    "max_stock": 237,
+    "cost_per_unit": 27.7
+  },
+  {
+    "sku": "NIK-KID-CLO-051",
+    "quantity_available": 159,
+    "quantity_reserved": 0,
+    "reorder_level": 15,
+    "max_stock": 477,
+    "cost_per_unit": 13.7
+  },
+  {
+    "sku": "THE-KID-CLO-052",
+    "quantity_available": 168,
+    "quantity_reserved": 0,
+    "reorder_level": 16,
+    "max_stock": 504,
+    "cost_per_unit": 26.67
+  },
+  {
+    "sku": "OLD-KID-CLO-053",
+    "quantity_available": 150,
+    "quantity_reserved": 0,
+    "reorder_level": 15,
+    "max_stock": 450,
+    "cost_per_unit": 18.7
+  },
+  {
+    "sku": "CAR-KID-CLO-054",
+    "quantity_available": 113,
+    "quantity_reserved": 0,
+    "reorder_level": 11,
+    "max_stock": 339,
+    "cost_per_unit": 20.82
+  },
+  {
+    "sku": "OLD-KID-CLO-055",
+    "quantity_available": 177,
+    "quantity_reserved": 0,
+    "reorder_level": 17,
+    "max_stock": 531,
+    "cost_per_unit": 27
+  },
+  {
+    "sku": "GAP-KID-CLO-056",
+    "quantity_available": 73,
+    "quantity_reserved": 0,
+    "reorder_level": 7,
+    "max_stock": 219,
+    "cost_per_unit": 12.12
+  },
+  {
+    "sku": "NIK-KID-CLO-057",
+    "quantity_available": 90,
+    "quantity_reserved": 0,
+    "reorder_level": 9,
+    "max_stock": 270,
+    "cost_per_unit": 15.49
+  },
+  {
+    "sku": "NIK-KID-CLO-058",
+    "quantity_available": 74,
+    "quantity_reserved": 0,
+    "reorder_level": 7,
+    "max_stock": 222,
+    "cost_per_unit": 19.28
+  },
+  {
+    "sku": "LEV-KID-FOO-059",
+    "quantity_available": 155,
+    "quantity_reserved": 0,
+    "reorder_level": 15,
+    "max_stock": 465,
+    "cost_per_unit": 26.69
+  },
+  {
+    "sku": "NIK-KID-FOO-060",
+    "quantity_available": 92,
+    "quantity_reserved": 0,
+    "reorder_level": 9,
+    "max_stock": 276,
+    "cost_per_unit": 16.3
+  },
+  {
+    "sku": "NIK-KID-FOO-061",
+    "quantity_available": 175,
+    "quantity_reserved": 0,
+    "reorder_level": 17,
+    "max_stock": 525,
+    "cost_per_unit": 17.75
+  },
+  {
+    "sku": "LEV-KID-FOO-062",
+    "quantity_available": 116,
+    "quantity_reserved": 0,
+    "reorder_level": 11,
+    "max_stock": 348,
+    "cost_per_unit": 15.88
+  },
+  {
+    "sku": "NIN-ELE-MOB-063",
+    "quantity_available": 29,
+    "quantity_reserved": 0,
+    "reorder_level": 5,
+    "max_stock": 87,
+    "cost_per_unit": 143.95
+  },
+  {
+    "sku": "LEN-ELE-MOB-064",
+    "quantity_available": 48,
+    "quantity_reserved": 0,
+    "reorder_level": 5,
+    "max_stock": 144,
+    "cost_per_unit": 182.09
+  },
+  {
+    "sku": "MIC-ELE-MOB-065",
+    "quantity_available": 13,
+    "quantity_reserved": 0,
+    "reorder_level": 5,
+    "max_stock": 39,
+    "cost_per_unit": 220.65
+  },
+  {
+    "sku": "DEL-ELE-MOB-066",
+    "quantity_available": 41,
+    "quantity_reserved": 0,
+    "reorder_level": 5,
+    "max_stock": 123,
+    "cost_per_unit": 172.1
+  },
+  {
+    "sku": "SON-ELE-MOB-067",
+    "quantity_available": 25,
+    "quantity_reserved": 0,
+    "reorder_level": 5,
+    "max_stock": 75,
+    "cost_per_unit": 230.95
+  },
+  {
+    "sku": "SAM-ELE-AUD-068",
+    "quantity_available": 47,
+    "quantity_reserved": 0,
+    "reorder_level": 5,
+    "max_stock": 141,
+    "cost_per_unit": 132.56
+  },
+  {
+    "sku": "LEN-ELE-AUD-069",
+    "quantity_available": 46,
+    "quantity_reserved": 0,
+    "reorder_level": 5,
+    "max_stock": 138,
+    "cost_per_unit": 145.43
+  },
+  {
+    "sku": "SAM-ELE-AUD-070",
+    "quantity_available": 19,
+    "quantity_reserved": 0,
+    "reorder_level": 5,
+    "max_stock": 57,
+    "cost_per_unit": 123.28
+  },
+  {
+    "sku": "SAM-ELE-AUD-071",
+    "quantity_available": 16,
+    "quantity_reserved": 0,
+    "reorder_level": 5,
+    "max_stock": 48,
+    "cost_per_unit": 207.31
+  },
+  {
+    "sku": "DEL-ELE-AUD-072",
+    "quantity_available": 23,
+    "quantity_reserved": 0,
+    "reorder_level": 5,
+    "max_stock": 69,
+    "cost_per_unit": 147.29
+  },
+  {
+    "sku": "NIN-ELE-COM-073",
+    "quantity_available": 35,
+    "quantity_reserved": 0,
+    "reorder_level": 5,
+    "max_stock": 105,
+    "cost_per_unit": 161.64
+  },
+  {
+    "sku": "BOS-ELE-COM-074",
+    "quantity_available": 20,
+    "quantity_reserved": 0,
+    "reorder_level": 5,
+    "max_stock": 60,
+    "cost_per_unit": 195.39
+  },
+  {
+    "sku": "NIN-ELE-COM-075",
+    "quantity_available": 45,
+    "quantity_reserved": 0,
+    "reorder_level": 5,
+    "max_stock": 135,
+    "cost_per_unit": 199.81
+  },
+  {
+    "sku": "DEL-ELE-COM-076",
+    "quantity_available": 11,
+    "quantity_reserved": 0,
+    "reorder_level": 5,
+    "max_stock": 33,
+    "cost_per_unit": 202.52
+  },
+  {
+    "sku": "DEL-ELE-COM-077",
+    "quantity_available": 41,
+    "quantity_reserved": 0,
+    "reorder_level": 5,
+    "max_stock": 123,
+    "cost_per_unit": 240.9
+  },
+  {
+    "sku": "SON-ELE-COM-078",
+    "quantity_available": 17,
+    "quantity_reserved": 0,
+    "reorder_level": 5,
+    "max_stock": 51,
+    "cost_per_unit": 162.89
+  },
+  {
+    "sku": "APP-ELE-COM-079",
+    "quantity_available": 23,
+    "quantity_reserved": 0,
+    "reorder_level": 5,
+    "max_stock": 69,
+    "cost_per_unit": 230.15
+  },
+  {
+    "sku": "DEL-ELE-COM-080",
+    "quantity_available": 25,
+    "quantity_reserved": 0,
+    "reorder_level": 5,
+    "max_stock": 75,
+    "cost_per_unit": 183.39
+  },
+  {
+    "sku": "SAM-ELE-GAM-081",
+    "quantity_available": 49,
+    "quantity_reserved": 0,
+    "reorder_level": 5,
+    "max_stock": 147,
+    "cost_per_unit": 155.02
+  },
+  {
+    "sku": "LEN-ELE-GAM-082",
+    "quantity_available": 39,
+    "quantity_reserved": 0,
+    "reorder_level": 5,
+    "max_stock": 117,
+    "cost_per_unit": 216.1
+  },
+  {
+    "sku": "APP-ELE-GAM-083",
+    "quantity_available": 32,
+    "quantity_reserved": 0,
+    "reorder_level": 5,
+    "max_stock": 96,
+    "cost_per_unit": 231.81
+  },
+  {
+    "sku": "DEL-ELE-GAM-084",
+    "quantity_available": 17,
+    "quantity_reserved": 0,
+    "reorder_level": 5,
+    "max_stock": 51,
+    "cost_per_unit": 112.22
+  },
+  {
+    "sku": "SON-ELE-GAM-085",
+    "quantity_available": 42,
+    "quantity_reserved": 0,
+    "reorder_level": 5,
+    "max_stock": 126,
+    "cost_per_unit": 241.9
+  },
+  {
+    "sku": "ADI-SPO-FOO-086",
+    "quantity_available": 54,
+    "quantity_reserved": 0,
+    "reorder_level": 5,
+    "max_stock": 162,
+    "cost_per_unit": 34.14
+  },
+  {
+    "sku": "PAT-SPO-FOO-087",
+    "quantity_available": 57,
+    "quantity_reserved": 0,
+    "reorder_level": 5,
+    "max_stock": 171,
+    "cost_per_unit": 51.1
+  },
+  {
+    "sku": "PUM-SPO-FOO-088",
+    "quantity_available": 56,
+    "quantity_reserved": 0,
+    "reorder_level": 5,
+    "max_stock": 168,
+    "cost_per_unit": 48.83
+  },
+  {
+    "sku": "PUM-SPO-FOO-089",
+    "quantity_available": 86,
+    "quantity_reserved": 0,
+    "reorder_level": 8,
+    "max_stock": 258,
+    "cost_per_unit": 54.27
+  },
+  {
+    "sku": "REE-SPO-FOO-090",
+    "quantity_available": 72,
+    "quantity_reserved": 0,
+    "reorder_level": 7,
+    "max_stock": 216,
+    "cost_per_unit": 33.04
+  },
+  {
+    "sku": "PAT-SPO-FOO-091",
+    "quantity_available": 78,
+    "quantity_reserved": 0,
+    "reorder_level": 7,
+    "max_stock": 234,
+    "cost_per_unit": 59.05
+  },
+  {
+    "sku": "UND-SPO-APP-092",
+    "quantity_available": 86,
+    "quantity_reserved": 0,
+    "reorder_level": 8,
+    "max_stock": 258,
+    "cost_per_unit": 39.65
+  },
+  {
+    "sku": "REE-SPO-APP-093",
+    "quantity_available": 116,
+    "quantity_reserved": 0,
+    "reorder_level": 11,
+    "max_stock": 348,
+    "cost_per_unit": 44.63
+  },
+  {
+    "sku": "REE-SPO-APP-094",
+    "quantity_available": 124,
+    "quantity_reserved": 0,
+    "reorder_level": 12,
+    "max_stock": 372,
+    "cost_per_unit": 47.99
+  },
+  {
+    "sku": "ADI-SPO-APP-095",
+    "quantity_available": 123,
+    "quantity_reserved": 0,
+    "reorder_level": 12,
+    "max_stock": 369,
+    "cost_per_unit": 56.89
+  },
+  {
+    "sku": "UND-SPO-APP-096",
+    "quantity_available": 140,
+    "quantity_reserved": 0,
+    "reorder_level": 14,
+    "max_stock": 420,
+    "cost_per_unit": 53.1
+  },
+  {
+    "sku": "ADI-SPO-APP-097",
+    "quantity_available": 147,
+    "quantity_reserved": 0,
+    "reorder_level": 14,
+    "max_stock": 441,
+    "cost_per_unit": 40.77
+  },
+  {
+    "sku": "REE-SPO-APP-098",
+    "quantity_available": 148,
+    "quantity_reserved": 0,
+    "reorder_level": 14,
+    "max_stock": 444,
+    "cost_per_unit": 51.97
+  },
+  {
+    "sku": "UND-SPO-APP-099",
+    "quantity_available": 100,
+    "quantity_reserved": 0,
+    "reorder_level": 10,
+    "max_stock": 300,
+    "cost_per_unit": 53.46
+  },
+  {
+    "sku": "UND-SPO-APP-100",
+    "quantity_available": 113,
+    "quantity_reserved": 0,
+    "reorder_level": 11,
+    "max_stock": 339,
+    "cost_per_unit": 35.92
+  }
+]

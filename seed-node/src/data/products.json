@@ -1,0 +1,3724 @@
+[
+  {
+    "name": "Luxury T-Shirts Clothing",
+    "description": "Luxury t-shirts for everyday wear",
+    "price": 31.98,
+    "department": "Women",
+    "category": "Clothing",
+    "subcategory": "Tops",
+    "productType": "T-Shirts",
+    "brand": "Anthropologie",
+    "sku": "ANT-WOM-CLO-001",
+    "images": [
+      "https://picsum.photos/id/100/800/800",
+      "https://picsum.photos/id/101/800/800",
+      "https://picsum.photos/id/102/800/800",
+      "https://picsum.photos/id/103/800/800"
+    ],
+    "tags": [
+      "t-shirts"
+    ],
+    "colors": [
+      "Gray",
+      "Beige",
+      "Navy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Elegant Blouses Clothing",
+    "description": "Elegant blouses for everyday wear",
+    "price": 175.48,
+    "department": "Women",
+    "category": "Clothing",
+    "subcategory": "Tops",
+    "productType": "Blouses",
+    "brand": "H&M",
+    "sku": "H&M-WOM-CLO-002",
+    "images": [
+      "https://picsum.photos/id/101/800/800",
+      "https://picsum.photos/id/102/800/800",
+      "https://picsum.photos/id/103/800/800",
+      "https://picsum.photos/id/104/800/800"
+    ],
+    "tags": [
+      "blouses"
+    ],
+    "colors": [
+      "White",
+      "Black"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Timeless Sweaters Clothing",
+    "description": "Timeless sweaters for everyday wear",
+    "price": 40.36,
+    "department": "Women",
+    "category": "Clothing",
+    "subcategory": "Tops",
+    "productType": "Sweaters",
+    "brand": "Zara",
+    "sku": "ZAR-WOM-CLO-003",
+    "images": [
+      "https://picsum.photos/id/102/800/800",
+      "https://picsum.photos/id/103/800/800",
+      "https://picsum.photos/id/104/800/800",
+      "https://picsum.photos/id/105/800/800"
+    ],
+    "tags": [
+      "sweaters"
+    ],
+    "colors": [
+      "White",
+      "Green"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Durable Tank Tops Clothing",
+    "description": "Durable tank tops for everyday wear",
+    "price": 146.95,
+    "department": "Women",
+    "category": "Clothing",
+    "subcategory": "Tops",
+    "productType": "Tank Tops",
+    "brand": "H&M",
+    "sku": "H&M-WOM-CLO-004",
+    "images": [
+      "https://picsum.photos/id/103/800/800",
+      "https://picsum.photos/id/104/800/800",
+      "https://picsum.photos/id/105/800/800",
+      "https://picsum.photos/id/106/800/800"
+    ],
+    "tags": [
+      "tank-tops"
+    ],
+    "colors": [
+      "Navy",
+      "Blue",
+      "Gray"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Comfortable Summer Dresses Clothing",
+    "description": "Comfortable summer dresses for everyday wear",
+    "price": 114.28,
+    "department": "Women",
+    "category": "Clothing",
+    "subcategory": "Dresses",
+    "productType": "Summer Dresses",
+    "brand": "Mejuri",
+    "sku": "MEJ-WOM-CLO-005",
+    "images": [
+      "https://picsum.photos/id/104/800/800",
+      "https://picsum.photos/id/105/800/800",
+      "https://picsum.photos/id/106/800/800",
+      "https://picsum.photos/id/107/800/800"
+    ],
+    "tags": [
+      "summer-dresses"
+    ],
+    "colors": [
+      "Black",
+      "Gray",
+      "Beige",
+      "Navy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Minimalist Evening Dresses Clothing",
+    "description": "Minimalist evening dresses for everyday wear",
+    "price": 70.24,
+    "department": "Women",
+    "category": "Clothing",
+    "subcategory": "Dresses",
+    "productType": "Evening Dresses",
+    "brand": "Anthropologie",
+    "sku": "ANT-WOM-CLO-006",
+    "images": [
+      "https://picsum.photos/id/105/800/800",
+      "https://picsum.photos/id/106/800/800",
+      "https://picsum.photos/id/107/800/800",
+      "https://picsum.photos/id/108/800/800"
+    ],
+    "tags": [
+      "evening-dresses"
+    ],
+    "colors": [
+      "Gray",
+      "Beige",
+      "White"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Minimalist Casual Dresses Clothing",
+    "description": "Minimalist casual dresses for everyday wear",
+    "price": 146.64,
+    "department": "Women",
+    "category": "Clothing",
+    "subcategory": "Dresses",
+    "productType": "Casual Dresses",
+    "brand": "Madewell",
+    "sku": "MAD-WOM-CLO-007",
+    "images": [
+      "https://picsum.photos/id/106/800/800",
+      "https://picsum.photos/id/107/800/800",
+      "https://picsum.photos/id/108/800/800",
+      "https://picsum.photos/id/109/800/800"
+    ],
+    "tags": [
+      "casual-dresses"
+    ],
+    "colors": [
+      "Gray",
+      "Blue",
+      "White"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Lightweight Maxi Dresses Clothing",
+    "description": "Lightweight maxi dresses for everyday wear",
+    "price": 172.89,
+    "department": "Women",
+    "category": "Clothing",
+    "subcategory": "Dresses",
+    "productType": "Maxi Dresses",
+    "brand": "H&M",
+    "sku": "H&M-WOM-CLO-008",
+    "images": [
+      "https://picsum.photos/id/107/800/800",
+      "https://picsum.photos/id/108/800/800",
+      "https://picsum.photos/id/109/800/800",
+      "https://picsum.photos/id/110/800/800"
+    ],
+    "tags": [
+      "maxi-dresses"
+    ],
+    "colors": [
+      "White",
+      "Navy",
+      "Red",
+      "Beige"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Modern Jeans Clothing",
+    "description": "Modern jeans for everyday wear",
+    "price": 127.25,
+    "department": "Women",
+    "category": "Clothing",
+    "subcategory": "Pants",
+    "productType": "Jeans",
+    "brand": "Madewell",
+    "sku": "MAD-WOM-CLO-009",
+    "images": [
+      "https://picsum.photos/id/108/800/800",
+      "https://picsum.photos/id/109/800/800",
+      "https://picsum.photos/id/110/800/800",
+      "https://picsum.photos/id/111/800/800"
+    ],
+    "tags": [
+      "jeans"
+    ],
+    "colors": [
+      "Beige",
+      "Navy",
+      "Blue"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Timeless Leggings Clothing",
+    "description": "Timeless leggings for everyday wear",
+    "price": 65.1,
+    "department": "Women",
+    "category": "Clothing",
+    "subcategory": "Pants",
+    "productType": "Leggings",
+    "brand": "Mejuri",
+    "sku": "MEJ-WOM-CLO-010",
+    "images": [
+      "https://picsum.photos/id/109/800/800",
+      "https://picsum.photos/id/110/800/800",
+      "https://picsum.photos/id/111/800/800",
+      "https://picsum.photos/id/112/800/800"
+    ],
+    "tags": [
+      "leggings"
+    ],
+    "colors": [
+      "Blue",
+      "Navy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Cozy Dress Pants Clothing",
+    "description": "Cozy dress pants for everyday wear",
+    "price": 171.07,
+    "department": "Women",
+    "category": "Clothing",
+    "subcategory": "Pants",
+    "productType": "Dress Pants",
+    "brand": "Mejuri",
+    "sku": "MEJ-WOM-CLO-011",
+    "images": [
+      "https://picsum.photos/id/110/800/800",
+      "https://picsum.photos/id/111/800/800",
+      "https://picsum.photos/id/112/800/800",
+      "https://picsum.photos/id/113/800/800"
+    ],
+    "tags": [
+      "dress-pants"
+    ],
+    "colors": [
+      "Navy",
+      "Blue",
+      "Gray",
+      "Black"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Modern Cargo Pants Clothing",
+    "description": "Modern cargo pants for everyday wear",
+    "price": 94.56,
+    "department": "Women",
+    "category": "Clothing",
+    "subcategory": "Pants",
+    "productType": "Cargo Pants",
+    "brand": "H&M",
+    "sku": "H&M-WOM-CLO-012",
+    "images": [
+      "https://picsum.photos/id/111/800/800",
+      "https://picsum.photos/id/112/800/800",
+      "https://picsum.photos/id/113/800/800",
+      "https://picsum.photos/id/114/800/800"
+    ],
+    "tags": [
+      "cargo-pants"
+    ],
+    "colors": [
+      "Gray",
+      "Beige",
+      "Red"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Modern Jackets Clothing",
+    "description": "Modern jackets for everyday wear",
+    "price": 107.13,
+    "department": "Women",
+    "category": "Clothing",
+    "subcategory": "Outerwear",
+    "productType": "Jackets",
+    "brand": "H&M",
+    "sku": "H&M-WOM-CLO-013",
+    "images": [
+      "https://picsum.photos/id/112/800/800",
+      "https://picsum.photos/id/113/800/800",
+      "https://picsum.photos/id/114/800/800",
+      "https://picsum.photos/id/115/800/800"
+    ],
+    "tags": [
+      "jackets"
+    ],
+    "colors": [
+      "White",
+      "Red",
+      "Gray",
+      "Navy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Casual Coats Clothing",
+    "description": "Casual coats for everyday wear",
+    "price": 103.03,
+    "department": "Women",
+    "category": "Clothing",
+    "subcategory": "Outerwear",
+    "productType": "Coats",
+    "brand": "Reformation",
+    "sku": "REF-WOM-CLO-014",
+    "images": [
+      "https://picsum.photos/id/113/800/800",
+      "https://picsum.photos/id/114/800/800",
+      "https://picsum.photos/id/115/800/800",
+      "https://picsum.photos/id/116/800/800"
+    ],
+    "tags": [
+      "coats"
+    ],
+    "colors": [
+      "Red",
+      "Blue",
+      "Beige"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Minimalist Blazers Clothing",
+    "description": "Minimalist blazers for everyday wear",
+    "price": 127.33,
+    "department": "Women",
+    "category": "Clothing",
+    "subcategory": "Outerwear",
+    "productType": "Blazers",
+    "brand": "Anthropologie",
+    "sku": "ANT-WOM-CLO-015",
+    "images": [
+      "https://picsum.photos/id/114/800/800",
+      "https://picsum.photos/id/115/800/800",
+      "https://picsum.photos/id/116/800/800",
+      "https://picsum.photos/id/117/800/800"
+    ],
+    "tags": [
+      "blazers"
+    ],
+    "colors": [
+      "White",
+      "Red"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Premium Cardigans Clothing",
+    "description": "Premium cardigans for everyday wear",
+    "price": 130.61,
+    "department": "Women",
+    "category": "Clothing",
+    "subcategory": "Outerwear",
+    "productType": "Cardigans",
+    "brand": "Mejuri",
+    "sku": "MEJ-WOM-CLO-016",
+    "images": [
+      "https://picsum.photos/id/115/800/800",
+      "https://picsum.photos/id/116/800/800",
+      "https://picsum.photos/id/117/800/800",
+      "https://picsum.photos/id/118/800/800"
+    ],
+    "tags": [
+      "cardigans"
+    ],
+    "colors": [
+      "Gray",
+      "Beige",
+      "White"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Trendy Necklaces Accessorie",
+    "description": "Trendy necklaces for everyday wear",
+    "price": 134.33,
+    "department": "Women",
+    "category": "Accessories",
+    "subcategory": "Jewelry",
+    "productType": "Necklaces",
+    "brand": "Anthropologie",
+    "sku": "ANT-WOM-ACC-017",
+    "images": [
+      "https://picsum.photos/id/116/800/800",
+      "https://picsum.photos/id/117/800/800",
+      "https://picsum.photos/id/118/800/800",
+      "https://picsum.photos/id/119/800/800"
+    ],
+    "tags": [
+      "necklaces"
+    ],
+    "colors": [
+      "Gray",
+      "Blue"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Athletic Earrings Accessorie",
+    "description": "Athletic earrings for everyday wear",
+    "price": 44.4,
+    "department": "Women",
+    "category": "Accessories",
+    "subcategory": "Jewelry",
+    "productType": "Earrings",
+    "brand": "Reformation",
+    "sku": "REF-WOM-ACC-018",
+    "images": [
+      "https://picsum.photos/id/117/800/800",
+      "https://picsum.photos/id/118/800/800",
+      "https://picsum.photos/id/119/800/800",
+      "https://picsum.photos/id/120/800/800"
+    ],
+    "tags": [
+      "earrings"
+    ],
+    "colors": [
+      "Green",
+      "Blue",
+      "Gray",
+      "Beige"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Modern Bracelets Accessorie",
+    "description": "Modern bracelets for everyday wear",
+    "price": 79.55,
+    "department": "Women",
+    "category": "Accessories",
+    "subcategory": "Jewelry",
+    "productType": "Bracelets",
+    "brand": "Everlane",
+    "sku": "EVE-WOM-ACC-019",
+    "images": [
+      "https://picsum.photos/id/118/800/800",
+      "https://picsum.photos/id/119/800/800",
+      "https://picsum.photos/id/120/800/800",
+      "https://picsum.photos/id/121/800/800"
+    ],
+    "tags": [
+      "bracelets"
+    ],
+    "colors": [
+      "Gray",
+      "Red",
+      "Beige"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Vintage Rings Accessorie",
+    "description": "Vintage rings for everyday wear",
+    "price": 169.99,
+    "department": "Women",
+    "category": "Accessories",
+    "subcategory": "Jewelry",
+    "productType": "Rings",
+    "brand": "H&M",
+    "sku": "H&M-WOM-ACC-020",
+    "images": [
+      "https://picsum.photos/id/119/800/800",
+      "https://picsum.photos/id/120/800/800",
+      "https://picsum.photos/id/121/800/800",
+      "https://picsum.photos/id/122/800/800"
+    ],
+    "tags": [
+      "rings"
+    ],
+    "colors": [
+      "Blue",
+      "White"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Vintage Crossbody Accessorie",
+    "description": "Vintage crossbody for everyday wear",
+    "price": 67.44,
+    "department": "Women",
+    "category": "Accessories",
+    "subcategory": "Bags",
+    "productType": "Crossbody",
+    "brand": "Zara",
+    "sku": "ZAR-WOM-ACC-021",
+    "images": [
+      "https://picsum.photos/id/120/800/800",
+      "https://picsum.photos/id/121/800/800",
+      "https://picsum.photos/id/122/800/800",
+      "https://picsum.photos/id/123/800/800"
+    ],
+    "tags": [
+      "crossbody"
+    ],
+    "colors": [
+      "White",
+      "Navy",
+      "Gray",
+      "Blue"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Essential Tote Bags Accessorie",
+    "description": "Essential tote bags for everyday wear",
+    "price": 132.38,
+    "department": "Women",
+    "category": "Accessories",
+    "subcategory": "Bags",
+    "productType": "Tote Bags",
+    "brand": "Everlane",
+    "sku": "EVE-WOM-ACC-022",
+    "images": [
+      "https://picsum.photos/id/121/800/800",
+      "https://picsum.photos/id/122/800/800",
+      "https://picsum.photos/id/123/800/800",
+      "https://picsum.photos/id/124/800/800"
+    ],
+    "tags": [
+      "tote-bags"
+    ],
+    "colors": [
+      "Red",
+      "White",
+      "Beige"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Comfortable Clutches Accessorie",
+    "description": "Comfortable clutches for everyday wear",
+    "price": 177.62,
+    "department": "Women",
+    "category": "Accessories",
+    "subcategory": "Bags",
+    "productType": "Clutches",
+    "brand": "Everlane",
+    "sku": "EVE-WOM-ACC-023",
+    "images": [
+      "https://picsum.photos/id/122/800/800",
+      "https://picsum.photos/id/123/800/800",
+      "https://picsum.photos/id/124/800/800",
+      "https://picsum.photos/id/125/800/800"
+    ],
+    "tags": [
+      "clutches"
+    ],
+    "colors": [
+      "Blue",
+      "Green",
+      "Gray"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Stylish Backpacks Accessorie",
+    "description": "Stylish backpacks for everyday wear",
+    "price": 31.66,
+    "department": "Women",
+    "category": "Accessories",
+    "subcategory": "Bags",
+    "productType": "Backpacks",
+    "brand": "Fossil",
+    "sku": "FOS-WOM-ACC-024",
+    "images": [
+      "https://picsum.photos/id/123/800/800",
+      "https://picsum.photos/id/124/800/800",
+      "https://picsum.photos/id/125/800/800",
+      "https://picsum.photos/id/126/800/800"
+    ],
+    "tags": [
+      "backpacks"
+    ],
+    "colors": [
+      "Red",
+      "White"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Comfortable Heels Accessorie",
+    "description": "Comfortable heels for everyday wear",
+    "price": 90.66,
+    "department": "Women",
+    "category": "Accessories",
+    "subcategory": "Shoes",
+    "productType": "Heels",
+    "brand": "H&M",
+    "sku": "H&M-WOM-ACC-025",
+    "images": [
+      "https://picsum.photos/id/124/800/800",
+      "https://picsum.photos/id/125/800/800",
+      "https://picsum.photos/id/126/800/800",
+      "https://picsum.photos/id/127/800/800"
+    ],
+    "tags": [
+      "heels"
+    ],
+    "colors": [
+      "White",
+      "Beige",
+      "Navy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Minimalist Flats Accessorie",
+    "description": "Minimalist flats for everyday wear",
+    "price": 82.06,
+    "department": "Women",
+    "category": "Accessories",
+    "subcategory": "Shoes",
+    "productType": "Flats",
+    "brand": "Everlane",
+    "sku": "EVE-WOM-ACC-026",
+    "images": [
+      "https://picsum.photos/id/125/800/800",
+      "https://picsum.photos/id/126/800/800",
+      "https://picsum.photos/id/127/800/800",
+      "https://picsum.photos/id/128/800/800"
+    ],
+    "tags": [
+      "flats"
+    ],
+    "colors": [
+      "White",
+      "Beige"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Cozy Boots Accessorie",
+    "description": "Cozy boots for everyday wear",
+    "price": 195.5,
+    "department": "Women",
+    "category": "Accessories",
+    "subcategory": "Shoes",
+    "productType": "Boots",
+    "brand": "Mejuri",
+    "sku": "MEJ-WOM-ACC-027",
+    "images": [
+      "https://picsum.photos/id/126/800/800",
+      "https://picsum.photos/id/127/800/800",
+      "https://picsum.photos/id/128/800/800",
+      "https://picsum.photos/id/129/800/800"
+    ],
+    "tags": [
+      "boots"
+    ],
+    "colors": [
+      "Beige",
+      "Black"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Essential Sandals Accessorie",
+    "description": "Essential sandals for everyday wear",
+    "price": 46.25,
+    "department": "Women",
+    "category": "Accessories",
+    "subcategory": "Shoes",
+    "productType": "Sandals",
+    "brand": "H&M",
+    "sku": "H&M-WOM-ACC-028",
+    "images": [
+      "https://picsum.photos/id/127/800/800",
+      "https://picsum.photos/id/128/800/800",
+      "https://picsum.photos/id/129/800/800",
+      "https://picsum.photos/id/130/800/800"
+    ],
+    "tags": [
+      "sandals"
+    ],
+    "colors": [
+      "Black",
+      "Gray"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Minimalist Dress Shirts Clothing",
+    "description": "Minimalist dress shirts for everyday wear",
+    "price": 77.72,
+    "department": "Men",
+    "category": "Clothing",
+    "subcategory": "Shirts",
+    "productType": "Dress Shirts",
+    "brand": "J.Crew",
+    "sku": "J.C-MEN-CLO-029",
+    "images": [
+      "https://picsum.photos/id/128/800/800",
+      "https://picsum.photos/id/129/800/800",
+      "https://picsum.photos/id/130/800/800",
+      "https://picsum.photos/id/131/800/800"
+    ],
+    "tags": [
+      "dress-shirts"
+    ],
+    "colors": [
+      "Gray",
+      "Red"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Elegant Casual Shirts Clothing",
+    "description": "Elegant casual shirts for everyday wear",
+    "price": 187.8,
+    "department": "Men",
+    "category": "Clothing",
+    "subcategory": "Shirts",
+    "productType": "Casual Shirts",
+    "brand": "Citizen",
+    "sku": "CIT-MEN-CLO-030",
+    "images": [
+      "https://picsum.photos/id/129/800/800",
+      "https://picsum.photos/id/130/800/800",
+      "https://picsum.photos/id/131/800/800",
+      "https://picsum.photos/id/132/800/800"
+    ],
+    "tags": [
+      "casual-shirts"
+    ],
+    "colors": [
+      "Gray",
+      "Green",
+      "Beige",
+      "Black"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Cozy Polo Shirts Clothing",
+    "description": "Cozy polo shirts for everyday wear",
+    "price": 116.67,
+    "department": "Men",
+    "category": "Clothing",
+    "subcategory": "Shirts",
+    "productType": "Polo Shirts",
+    "brand": "Banana Republic",
+    "sku": "BAN-MEN-CLO-031",
+    "images": [
+      "https://picsum.photos/id/130/800/800",
+      "https://picsum.photos/id/131/800/800",
+      "https://picsum.photos/id/132/800/800",
+      "https://picsum.photos/id/133/800/800"
+    ],
+    "tags": [
+      "polo-shirts"
+    ],
+    "colors": [
+      "Blue",
+      "Gray"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Sleek Henley Clothing",
+    "description": "Sleek henley for everyday wear",
+    "price": 40.31,
+    "department": "Men",
+    "category": "Clothing",
+    "subcategory": "Shirts",
+    "productType": "Henley",
+    "brand": "J.Crew",
+    "sku": "J.C-MEN-CLO-032",
+    "images": [
+      "https://picsum.photos/id/131/800/800",
+      "https://picsum.photos/id/132/800/800",
+      "https://picsum.photos/id/133/800/800",
+      "https://picsum.photos/id/134/800/800"
+    ],
+    "tags": [
+      "henley"
+    ],
+    "colors": [
+      "Black",
+      "Red",
+      "Beige",
+      "White"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Cozy Chinos Clothing",
+    "description": "Cozy chinos for everyday wear",
+    "price": 188.89,
+    "department": "Men",
+    "category": "Clothing",
+    "subcategory": "Pants",
+    "productType": "Chinos",
+    "brand": "Brooks Brothers",
+    "sku": "BRO-MEN-CLO-033",
+    "images": [
+      "https://picsum.photos/id/132/800/800",
+      "https://picsum.photos/id/133/800/800",
+      "https://picsum.photos/id/134/800/800",
+      "https://picsum.photos/id/135/800/800"
+    ],
+    "tags": [
+      "chinos"
+    ],
+    "colors": [
+      "Blue",
+      "Green",
+      "White",
+      "Gray"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Minimalist Jeans Clothing",
+    "description": "Minimalist jeans for everyday wear",
+    "price": 48.48,
+    "department": "Men",
+    "category": "Clothing",
+    "subcategory": "Pants",
+    "productType": "Jeans",
+    "brand": "Brooks Brothers",
+    "sku": "BRO-MEN-CLO-034",
+    "images": [
+      "https://picsum.photos/id/133/800/800",
+      "https://picsum.photos/id/134/800/800",
+      "https://picsum.photos/id/135/800/800",
+      "https://picsum.photos/id/136/800/800"
+    ],
+    "tags": [
+      "jeans"
+    ],
+    "colors": [
+      "Blue",
+      "Gray"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Durable Dress Pants Clothing",
+    "description": "Durable dress pants for everyday wear",
+    "price": 171.79,
+    "department": "Men",
+    "category": "Clothing",
+    "subcategory": "Pants",
+    "productType": "Dress Pants",
+    "brand": "Banana Republic",
+    "sku": "BAN-MEN-CLO-035",
+    "images": [
+      "https://picsum.photos/id/134/800/800",
+      "https://picsum.photos/id/135/800/800",
+      "https://picsum.photos/id/136/800/800",
+      "https://picsum.photos/id/137/800/800"
+    ],
+    "tags": [
+      "dress-pants"
+    ],
+    "colors": [
+      "Green",
+      "Black",
+      "Blue",
+      "Beige"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Comfortable Joggers Clothing",
+    "description": "Comfortable joggers for everyday wear",
+    "price": 60.73,
+    "department": "Men",
+    "category": "Clothing",
+    "subcategory": "Pants",
+    "productType": "Joggers",
+    "brand": "Citizen",
+    "sku": "CIT-MEN-CLO-036",
+    "images": [
+      "https://picsum.photos/id/135/800/800",
+      "https://picsum.photos/id/136/800/800",
+      "https://picsum.photos/id/137/800/800",
+      "https://picsum.photos/id/138/800/800"
+    ],
+    "tags": [
+      "joggers"
+    ],
+    "colors": [
+      "White",
+      "Navy",
+      "Black"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Lightweight Jackets Clothing",
+    "description": "Lightweight jackets for everyday wear",
+    "price": 73.03,
+    "department": "Men",
+    "category": "Clothing",
+    "subcategory": "Outerwear",
+    "productType": "Jackets",
+    "brand": "Citizen",
+    "sku": "CIT-MEN-CLO-037",
+    "images": [
+      "https://picsum.photos/id/136/800/800",
+      "https://picsum.photos/id/137/800/800",
+      "https://picsum.photos/id/138/800/800",
+      "https://picsum.photos/id/139/800/800"
+    ],
+    "tags": [
+      "jackets"
+    ],
+    "colors": [
+      "Gray",
+      "Black",
+      "Red"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Professional Coats Clothing",
+    "description": "Professional coats for everyday wear",
+    "price": 60.88,
+    "department": "Men",
+    "category": "Clothing",
+    "subcategory": "Outerwear",
+    "productType": "Coats",
+    "brand": "Bonobos",
+    "sku": "BON-MEN-CLO-038",
+    "images": [
+      "https://picsum.photos/id/137/800/800",
+      "https://picsum.photos/id/138/800/800",
+      "https://picsum.photos/id/139/800/800",
+      "https://picsum.photos/id/140/800/800"
+    ],
+    "tags": [
+      "coats"
+    ],
+    "colors": [
+      "Red",
+      "White",
+      "Beige",
+      "Blue"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Lightweight Hoodies Clothing",
+    "description": "Lightweight hoodies for everyday wear",
+    "price": 132.29,
+    "department": "Men",
+    "category": "Clothing",
+    "subcategory": "Outerwear",
+    "productType": "Hoodies",
+    "brand": "J.Crew",
+    "sku": "J.C-MEN-CLO-039",
+    "images": [
+      "https://picsum.photos/id/138/800/800",
+      "https://picsum.photos/id/139/800/800",
+      "https://picsum.photos/id/140/800/800",
+      "https://picsum.photos/id/141/800/800"
+    ],
+    "tags": [
+      "hoodies"
+    ],
+    "colors": [
+      "Gray",
+      "Navy",
+      "Green",
+      "White"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Durable Vests Clothing",
+    "description": "Durable vests for everyday wear",
+    "price": 54.7,
+    "department": "Men",
+    "category": "Clothing",
+    "subcategory": "Outerwear",
+    "productType": "Vests",
+    "brand": "Banana Republic",
+    "sku": "BAN-MEN-CLO-040",
+    "images": [
+      "https://picsum.photos/id/139/800/800",
+      "https://picsum.photos/id/140/800/800",
+      "https://picsum.photos/id/141/800/800",
+      "https://picsum.photos/id/142/800/800"
+    ],
+    "tags": [
+      "vests"
+    ],
+    "colors": [
+      "Blue",
+      "Gray"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Elegant Dress Belts Accessorie",
+    "description": "Elegant dress belts for everyday wear",
+    "price": 121,
+    "department": "Men",
+    "category": "Accessories",
+    "subcategory": "Belts",
+    "productType": "Dress Belts",
+    "brand": "Brooks Brothers",
+    "sku": "BRO-MEN-ACC-041",
+    "images": [
+      "https://picsum.photos/id/140/800/800",
+      "https://picsum.photos/id/141/800/800",
+      "https://picsum.photos/id/142/800/800",
+      "https://picsum.photos/id/143/800/800"
+    ],
+    "tags": [
+      "dress-belts"
+    ],
+    "colors": [
+      "Red",
+      "Green",
+      "Black",
+      "Beige"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Minimalist Casual Belts Accessorie",
+    "description": "Minimalist casual belts for everyday wear",
+    "price": 38.81,
+    "department": "Men",
+    "category": "Accessories",
+    "subcategory": "Belts",
+    "productType": "Casual Belts",
+    "brand": "Allen Edmonds",
+    "sku": "ALL-MEN-ACC-042",
+    "images": [
+      "https://picsum.photos/id/141/800/800",
+      "https://picsum.photos/id/142/800/800",
+      "https://picsum.photos/id/143/800/800",
+      "https://picsum.photos/id/144/800/800"
+    ],
+    "tags": [
+      "casual-belts"
+    ],
+    "colors": [
+      "Blue",
+      "Gray",
+      "White"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Comfortable Analog Watches Accessorie",
+    "description": "Comfortable analog watches for everyday wear",
+    "price": 39.39,
+    "department": "Men",
+    "category": "Accessories",
+    "subcategory": "Watches",
+    "productType": "Analog Watches",
+    "brand": "Citizen",
+    "sku": "CIT-MEN-ACC-043",
+    "images": [
+      "https://picsum.photos/id/142/800/800",
+      "https://picsum.photos/id/143/800/800",
+      "https://picsum.photos/id/144/800/800",
+      "https://picsum.photos/id/145/800/800"
+    ],
+    "tags": [
+      "analog-watches"
+    ],
+    "colors": [
+      "Red",
+      "Green"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Durable Digital Watches Accessorie",
+    "description": "Durable digital watches for everyday wear",
+    "price": 162.79,
+    "department": "Men",
+    "category": "Accessories",
+    "subcategory": "Watches",
+    "productType": "Digital Watches",
+    "brand": "Citizen",
+    "sku": "CIT-MEN-ACC-044",
+    "images": [
+      "https://picsum.photos/id/143/800/800",
+      "https://picsum.photos/id/144/800/800",
+      "https://picsum.photos/id/145/800/800",
+      "https://picsum.photos/id/146/800/800"
+    ],
+    "tags": [
+      "digital-watches"
+    ],
+    "colors": [
+      "Red",
+      "White",
+      "Blue"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Durable Smart Watches Accessorie",
+    "description": "Durable smart watches for everyday wear",
+    "price": 118.63,
+    "department": "Men",
+    "category": "Accessories",
+    "subcategory": "Watches",
+    "productType": "Smart Watches",
+    "brand": "Brooks Brothers",
+    "sku": "BRO-MEN-ACC-045",
+    "images": [
+      "https://picsum.photos/id/144/800/800",
+      "https://picsum.photos/id/145/800/800",
+      "https://picsum.photos/id/146/800/800",
+      "https://picsum.photos/id/147/800/800"
+    ],
+    "tags": [
+      "smart-watches"
+    ],
+    "colors": [
+      "Green",
+      "Navy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Trendy Dress Shoes Accessorie",
+    "description": "Trendy dress shoes for everyday wear",
+    "price": 122.06,
+    "department": "Men",
+    "category": "Accessories",
+    "subcategory": "Shoes",
+    "productType": "Dress Shoes",
+    "brand": "Brooks Brothers",
+    "sku": "BRO-MEN-ACC-046",
+    "images": [
+      "https://picsum.photos/id/145/800/800",
+      "https://picsum.photos/id/146/800/800",
+      "https://picsum.photos/id/147/800/800",
+      "https://picsum.photos/id/148/800/800"
+    ],
+    "tags": [
+      "dress-shoes"
+    ],
+    "colors": [
+      "Red",
+      "Beige",
+      "Gray"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Comfortable Sneakers Accessorie",
+    "description": "Comfortable sneakers for everyday wear",
+    "price": 35.32,
+    "department": "Men",
+    "category": "Accessories",
+    "subcategory": "Shoes",
+    "productType": "Sneakers",
+    "brand": "Allen Edmonds",
+    "sku": "ALL-MEN-ACC-047",
+    "images": [
+      "https://picsum.photos/id/146/800/800",
+      "https://picsum.photos/id/147/800/800",
+      "https://picsum.photos/id/148/800/800",
+      "https://picsum.photos/id/149/800/800"
+    ],
+    "tags": [
+      "sneakers"
+    ],
+    "colors": [
+      "Green",
+      "White",
+      "Black"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Classic Boots Accessorie",
+    "description": "Classic boots for everyday wear",
+    "price": 176.05,
+    "department": "Men",
+    "category": "Accessories",
+    "subcategory": "Shoes",
+    "productType": "Boots",
+    "brand": "Banana Republic",
+    "sku": "BAN-MEN-ACC-048",
+    "images": [
+      "https://picsum.photos/id/147/800/800",
+      "https://picsum.photos/id/148/800/800",
+      "https://picsum.photos/id/149/800/800",
+      "https://picsum.photos/id/150/800/800"
+    ],
+    "tags": [
+      "boots"
+    ],
+    "colors": [
+      "Beige",
+      "Green",
+      "Blue"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Classic Loafers Accessorie",
+    "description": "Classic loafers for everyday wear",
+    "price": 149.59,
+    "department": "Men",
+    "category": "Accessories",
+    "subcategory": "Shoes",
+    "productType": "Loafers",
+    "brand": "Allen Edmonds",
+    "sku": "ALL-MEN-ACC-049",
+    "images": [
+      "https://picsum.photos/id/148/800/800",
+      "https://picsum.photos/id/149/800/800",
+      "https://picsum.photos/id/150/800/800",
+      "https://picsum.photos/id/151/800/800"
+    ],
+    "tags": [
+      "loafers"
+    ],
+    "colors": [
+      "Black",
+      "Beige"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Minimalist T-Shirts Clothing",
+    "description": "Minimalist t-shirts for everyday wear",
+    "price": 54.6,
+    "department": "Kids",
+    "category": "Clothing",
+    "subcategory": "Tops",
+    "productType": "T-Shirts",
+    "brand": "Gap Kids",
+    "sku": "GAP-KID-CLO-050",
+    "images": [
+      "https://picsum.photos/id/149/800/800",
+      "https://picsum.photos/id/150/800/800",
+      "https://picsum.photos/id/151/800/800",
+      "https://picsum.photos/id/152/800/800"
+    ],
+    "tags": [
+      "t-shirts"
+    ],
+    "colors": [
+      "Navy",
+      "Gray"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Stylish Hoodies Clothing",
+    "description": "Stylish hoodies for everyday wear",
+    "price": 78.43,
+    "department": "Kids",
+    "category": "Clothing",
+    "subcategory": "Tops",
+    "productType": "Hoodies",
+    "brand": "Nike Kids",
+    "sku": "NIK-KID-CLO-051",
+    "images": [
+      "https://picsum.photos/id/150/800/800",
+      "https://picsum.photos/id/151/800/800",
+      "https://picsum.photos/id/152/800/800",
+      "https://picsum.photos/id/153/800/800"
+    ],
+    "tags": [
+      "hoodies"
+    ],
+    "colors": [
+      "Red",
+      "White",
+      "Navy",
+      "Green"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Vintage Sweaters Clothing",
+    "description": "Vintage sweaters for everyday wear",
+    "price": 77.45,
+    "department": "Kids",
+    "category": "Clothing",
+    "subcategory": "Tops",
+    "productType": "Sweaters",
+    "brand": "The Children's Place",
+    "sku": "THE-KID-CLO-052",
+    "images": [
+      "https://picsum.photos/id/151/800/800",
+      "https://picsum.photos/id/152/800/800",
+      "https://picsum.photos/id/153/800/800",
+      "https://picsum.photos/id/154/800/800"
+    ],
+    "tags": [
+      "sweaters"
+    ],
+    "colors": [
+      "Navy",
+      "White",
+      "Red"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Professional Jeans Clothing",
+    "description": "Professional jeans for everyday wear",
+    "price": 66.17,
+    "department": "Kids",
+    "category": "Clothing",
+    "subcategory": "Bottoms",
+    "productType": "Jeans",
+    "brand": "Old Navy",
+    "sku": "OLD-KID-CLO-053",
+    "images": [
+      "https://picsum.photos/id/152/800/800",
+      "https://picsum.photos/id/153/800/800",
+      "https://picsum.photos/id/154/800/800",
+      "https://picsum.photos/id/155/800/800"
+    ],
+    "tags": [
+      "jeans"
+    ],
+    "colors": [
+      "Green",
+      "Navy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Athletic Shorts Clothing",
+    "description": "Athletic shorts for everyday wear",
+    "price": 20.99,
+    "department": "Kids",
+    "category": "Clothing",
+    "subcategory": "Bottoms",
+    "productType": "Shorts",
+    "brand": "Carter's",
+    "sku": "CAR-KID-CLO-054",
+    "images": [
+      "https://picsum.photos/id/153/800/800",
+      "https://picsum.photos/id/154/800/800",
+      "https://picsum.photos/id/155/800/800",
+      "https://picsum.photos/id/156/800/800"
+    ],
+    "tags": [
+      "shorts"
+    ],
+    "colors": [
+      "Green",
+      "Beige"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Minimalist Leggings Clothing",
+    "description": "Minimalist leggings for everyday wear",
+    "price": 35.33,
+    "department": "Kids",
+    "category": "Clothing",
+    "subcategory": "Bottoms",
+    "productType": "Leggings",
+    "brand": "Old Navy",
+    "sku": "OLD-KID-CLO-055",
+    "images": [
+      "https://picsum.photos/id/154/800/800",
+      "https://picsum.photos/id/155/800/800",
+      "https://picsum.photos/id/156/800/800",
+      "https://picsum.photos/id/157/800/800"
+    ],
+    "tags": [
+      "leggings"
+    ],
+    "colors": [
+      "White",
+      "Red",
+      "Gray"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Comfortable Denim Jackets Clothing",
+    "description": "Comfortable denim jackets for everyday wear",
+    "price": 55.11,
+    "department": "Kids",
+    "category": "Clothing",
+    "subcategory": "Jackets",
+    "productType": "Denim Jackets",
+    "brand": "Gap Kids",
+    "sku": "GAP-KID-CLO-056",
+    "images": [
+      "https://picsum.photos/id/155/800/800",
+      "https://picsum.photos/id/156/800/800",
+      "https://picsum.photos/id/157/800/800",
+      "https://picsum.photos/id/158/800/800"
+    ],
+    "tags": [
+      "denim-jackets"
+    ],
+    "colors": [
+      "Gray",
+      "Blue"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Minimalist Winter Coats Clothing",
+    "description": "Minimalist winter coats for everyday wear",
+    "price": 39.41,
+    "department": "Kids",
+    "category": "Clothing",
+    "subcategory": "Jackets",
+    "productType": "Winter Coats",
+    "brand": "Nike Kids",
+    "sku": "NIK-KID-CLO-057",
+    "images": [
+      "https://picsum.photos/id/156/800/800",
+      "https://picsum.photos/id/157/800/800",
+      "https://picsum.photos/id/158/800/800",
+      "https://picsum.photos/id/159/800/800"
+    ],
+    "tags": [
+      "winter-coats"
+    ],
+    "colors": [
+      "Blue",
+      "Red",
+      "Green"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Casual Rain Jackets Clothing",
+    "description": "Casual rain jackets for everyday wear",
+    "price": 68.98,
+    "department": "Kids",
+    "category": "Clothing",
+    "subcategory": "Jackets",
+    "productType": "Rain Jackets",
+    "brand": "Nike Kids",
+    "sku": "NIK-KID-CLO-058",
+    "images": [
+      "https://picsum.photos/id/157/800/800",
+      "https://picsum.photos/id/158/800/800",
+      "https://picsum.photos/id/159/800/800",
+      "https://picsum.photos/id/160/800/800"
+    ],
+    "tags": [
+      "rain-jackets"
+    ],
+    "colors": [
+      "White",
+      "Navy",
+      "Red",
+      "Beige"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Versatile Athletic Sneakers Footwear",
+    "description": "Versatile athletic sneakers for everyday wear",
+    "price": 66.78,
+    "department": "Kids",
+    "category": "Footwear",
+    "subcategory": "Sneakers",
+    "productType": "Athletic Sneakers",
+    "brand": "Levi's Kids",
+    "sku": "LEV-KID-FOO-059",
+    "images": [
+      "https://picsum.photos/id/158/800/800",
+      "https://picsum.photos/id/159/800/800",
+      "https://picsum.photos/id/160/800/800",
+      "https://picsum.photos/id/161/800/800"
+    ],
+    "tags": [
+      "athletic-sneakers"
+    ],
+    "colors": [
+      "Black",
+      "Navy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Versatile Casual Sneakers Footwear",
+    "description": "Versatile casual sneakers for everyday wear",
+    "price": 73.45,
+    "department": "Kids",
+    "category": "Footwear",
+    "subcategory": "Sneakers",
+    "productType": "Casual Sneakers",
+    "brand": "Nike Kids",
+    "sku": "NIK-KID-FOO-060",
+    "images": [
+      "https://picsum.photos/id/159/800/800",
+      "https://picsum.photos/id/160/800/800",
+      "https://picsum.photos/id/161/800/800",
+      "https://picsum.photos/id/162/800/800"
+    ],
+    "tags": [
+      "casual-sneakers"
+    ],
+    "colors": [
+      "Green",
+      "White",
+      "Navy",
+      "Beige"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Classic Sport Sandals Footwear",
+    "description": "Classic sport sandals for everyday wear",
+    "price": 53.42,
+    "department": "Kids",
+    "category": "Footwear",
+    "subcategory": "Sandals",
+    "productType": "Sport Sandals",
+    "brand": "Nike Kids",
+    "sku": "NIK-KID-FOO-061",
+    "images": [
+      "https://picsum.photos/id/160/800/800",
+      "https://picsum.photos/id/161/800/800",
+      "https://picsum.photos/id/162/800/800",
+      "https://picsum.photos/id/163/800/800"
+    ],
+    "tags": [
+      "sport-sandals"
+    ],
+    "colors": [
+      "Red",
+      "Black",
+      "Green"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Essential Flip Flops Footwear",
+    "description": "Essential flip flops for everyday wear",
+    "price": 38.97,
+    "department": "Kids",
+    "category": "Footwear",
+    "subcategory": "Sandals",
+    "productType": "Flip Flops",
+    "brand": "Levi's Kids",
+    "sku": "LEV-KID-FOO-062",
+    "images": [
+      "https://picsum.photos/id/161/800/800",
+      "https://picsum.photos/id/162/800/800",
+      "https://picsum.photos/id/163/800/800",
+      "https://picsum.photos/id/164/800/800"
+    ],
+    "tags": [
+      "flip-flops"
+    ],
+    "colors": [
+      "White",
+      "Blue",
+      "Gray"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Sleek 5G Smartphones Mobile",
+    "description": "Sleek 5g smartphones for everyday wear",
+    "price": 1601.67,
+    "department": "Electronics",
+    "category": "Mobile",
+    "subcategory": "Smartphones",
+    "productType": "5G Smartphones",
+    "brand": "Nintendo",
+    "sku": "NIN-ELE-MOB-063",
+    "images": [
+      "https://picsum.photos/id/162/800/800",
+      "https://picsum.photos/id/163/800/800",
+      "https://picsum.photos/id/164/800/800",
+      "https://picsum.photos/id/165/800/800"
+    ],
+    "tags": [
+      "5g-smartphones"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Sleek Budget Phones Mobile",
+    "description": "Sleek budget phones for everyday wear",
+    "price": 1257.07,
+    "department": "Electronics",
+    "category": "Mobile",
+    "subcategory": "Smartphones",
+    "productType": "Budget Phones",
+    "brand": "Lenovo",
+    "sku": "LEN-ELE-MOB-064",
+    "images": [
+      "https://picsum.photos/id/163/800/800",
+      "https://picsum.photos/id/164/800/800",
+      "https://picsum.photos/id/165/800/800",
+      "https://picsum.photos/id/166/800/800"
+    ],
+    "tags": [
+      "budget-phones"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Classic Cases Mobile",
+    "description": "Classic cases for everyday wear",
+    "price": 1890.27,
+    "department": "Electronics",
+    "category": "Mobile",
+    "subcategory": "Accessories",
+    "productType": "Cases",
+    "brand": "Microsoft",
+    "sku": "MIC-ELE-MOB-065",
+    "images": [
+      "https://picsum.photos/id/164/800/800",
+      "https://picsum.photos/id/165/800/800",
+      "https://picsum.photos/id/166/800/800",
+      "https://picsum.photos/id/167/800/800"
+    ],
+    "tags": [
+      "cases"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Minimalist Screen Protectors Mobile",
+    "description": "Minimalist screen protectors for everyday wear",
+    "price": 1461.37,
+    "department": "Electronics",
+    "category": "Mobile",
+    "subcategory": "Accessories",
+    "productType": "Screen Protectors",
+    "brand": "Dell",
+    "sku": "DEL-ELE-MOB-066",
+    "images": [
+      "https://picsum.photos/id/165/800/800",
+      "https://picsum.photos/id/166/800/800",
+      "https://picsum.photos/id/167/800/800",
+      "https://picsum.photos/id/168/800/800"
+    ],
+    "tags": [
+      "screen-protectors"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Timeless Chargers Mobile",
+    "description": "Timeless chargers for everyday wear",
+    "price": 1771.62,
+    "department": "Electronics",
+    "category": "Mobile",
+    "subcategory": "Accessories",
+    "productType": "Chargers",
+    "brand": "Sony",
+    "sku": "SON-ELE-MOB-067",
+    "images": [
+      "https://picsum.photos/id/166/800/800",
+      "https://picsum.photos/id/167/800/800",
+      "https://picsum.photos/id/168/800/800",
+      "https://picsum.photos/id/169/800/800"
+    ],
+    "tags": [
+      "chargers"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Athletic Over-Ear Audio",
+    "description": "Athletic over-ear for everyday wear",
+    "price": 1291.65,
+    "department": "Electronics",
+    "category": "Audio",
+    "subcategory": "Headphones",
+    "productType": "Over-Ear",
+    "brand": "Samsung",
+    "sku": "SAM-ELE-AUD-068",
+    "images": [
+      "https://picsum.photos/id/167/800/800",
+      "https://picsum.photos/id/168/800/800",
+      "https://picsum.photos/id/169/800/800",
+      "https://picsum.photos/id/170/800/800"
+    ],
+    "tags": [
+      "over-ear"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Luxury In-Ear Audio",
+    "description": "Luxury in-ear for everyday wear",
+    "price": 1603.92,
+    "department": "Electronics",
+    "category": "Audio",
+    "subcategory": "Headphones",
+    "productType": "In-Ear",
+    "brand": "Lenovo",
+    "sku": "LEN-ELE-AUD-069",
+    "images": [
+      "https://picsum.photos/id/168/800/800",
+      "https://picsum.photos/id/169/800/800",
+      "https://picsum.photos/id/170/800/800",
+      "https://picsum.photos/id/171/800/800"
+    ],
+    "tags": [
+      "in-ear"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Timeless Wireless Earbuds Audio",
+    "description": "Timeless wireless earbuds for everyday wear",
+    "price": 1513.26,
+    "department": "Electronics",
+    "category": "Audio",
+    "subcategory": "Headphones",
+    "productType": "Wireless Earbuds",
+    "brand": "Samsung",
+    "sku": "SAM-ELE-AUD-070",
+    "images": [
+      "https://picsum.photos/id/169/800/800",
+      "https://picsum.photos/id/170/800/800",
+      "https://picsum.photos/id/171/800/800",
+      "https://picsum.photos/id/172/800/800"
+    ],
+    "tags": [
+      "wireless-earbuds"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Trendy Bluetooth Speakers Audio",
+    "description": "Trendy bluetooth speakers for everyday wear",
+    "price": 1426.7,
+    "department": "Electronics",
+    "category": "Audio",
+    "subcategory": "Speakers",
+    "productType": "Bluetooth Speakers",
+    "brand": "Samsung",
+    "sku": "SAM-ELE-AUD-071",
+    "images": [
+      "https://picsum.photos/id/170/800/800",
+      "https://picsum.photos/id/171/800/800",
+      "https://picsum.photos/id/172/800/800",
+      "https://picsum.photos/id/173/800/800"
+    ],
+    "tags": [
+      "bluetooth-speakers"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Trendy Smart Speakers Audio",
+    "description": "Trendy smart speakers for everyday wear",
+    "price": 1024.09,
+    "department": "Electronics",
+    "category": "Audio",
+    "subcategory": "Speakers",
+    "productType": "Smart Speakers",
+    "brand": "Dell",
+    "sku": "DEL-ELE-AUD-072",
+    "images": [
+      "https://picsum.photos/id/171/800/800",
+      "https://picsum.photos/id/172/800/800",
+      "https://picsum.photos/id/173/800/800",
+      "https://picsum.photos/id/174/800/800"
+    ],
+    "tags": [
+      "smart-speakers"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Luxury Ultrabooks Computer",
+    "description": "Luxury ultrabooks for everyday wear",
+    "price": 733.78,
+    "department": "Electronics",
+    "category": "Computers",
+    "subcategory": "Laptops",
+    "productType": "Ultrabooks",
+    "brand": "Nintendo",
+    "sku": "NIN-ELE-COM-073",
+    "images": [
+      "https://picsum.photos/id/172/800/800",
+      "https://picsum.photos/id/173/800/800",
+      "https://picsum.photos/id/174/800/800",
+      "https://picsum.photos/id/175/800/800"
+    ],
+    "tags": [
+      "ultrabooks"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Classic Gaming Laptops Computer",
+    "description": "Classic gaming laptops for everyday wear",
+    "price": 1933.51,
+    "department": "Electronics",
+    "category": "Computers",
+    "subcategory": "Laptops",
+    "productType": "Gaming Laptops",
+    "brand": "Bose",
+    "sku": "BOS-ELE-COM-074",
+    "images": [
+      "https://picsum.photos/id/173/800/800",
+      "https://picsum.photos/id/174/800/800",
+      "https://picsum.photos/id/175/800/800",
+      "https://picsum.photos/id/176/800/800"
+    ],
+    "tags": [
+      "gaming-laptops"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Premium Business Laptops Computer",
+    "description": "Premium business laptops for everyday wear",
+    "price": 1106.18,
+    "department": "Electronics",
+    "category": "Computers",
+    "subcategory": "Laptops",
+    "productType": "Business Laptops",
+    "brand": "Nintendo",
+    "sku": "NIN-ELE-COM-075",
+    "images": [
+      "https://picsum.photos/id/174/800/800",
+      "https://picsum.photos/id/175/800/800",
+      "https://picsum.photos/id/176/800/800",
+      "https://picsum.photos/id/177/800/800"
+    ],
+    "tags": [
+      "business-laptops"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Casual iPad Computer",
+    "description": "Casual ipad for everyday wear",
+    "price": 694.28,
+    "department": "Electronics",
+    "category": "Computers",
+    "subcategory": "Tablets",
+    "productType": "iPad",
+    "brand": "Dell",
+    "sku": "DEL-ELE-COM-076",
+    "images": [
+      "https://picsum.photos/id/175/800/800",
+      "https://picsum.photos/id/176/800/800",
+      "https://picsum.photos/id/177/800/800",
+      "https://picsum.photos/id/178/800/800"
+    ],
+    "tags": [
+      "ipad"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Vintage Android Tablets Computer",
+    "description": "Vintage android tablets for everyday wear",
+    "price": 1875.01,
+    "department": "Electronics",
+    "category": "Computers",
+    "subcategory": "Tablets",
+    "productType": "Android Tablets",
+    "brand": "Dell",
+    "sku": "DEL-ELE-COM-077",
+    "images": [
+      "https://picsum.photos/id/176/800/800",
+      "https://picsum.photos/id/177/800/800",
+      "https://picsum.photos/id/178/800/800",
+      "https://picsum.photos/id/179/800/800"
+    ],
+    "tags": [
+      "android-tablets"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Sleek Keyboards Computer",
+    "description": "Sleek keyboards for everyday wear",
+    "price": 1047.3,
+    "department": "Electronics",
+    "category": "Computers",
+    "subcategory": "Accessories",
+    "productType": "Keyboards",
+    "brand": "Sony",
+    "sku": "SON-ELE-COM-078",
+    "images": [
+      "https://picsum.photos/id/177/800/800",
+      "https://picsum.photos/id/178/800/800",
+      "https://picsum.photos/id/179/800/800",
+      "https://picsum.photos/id/180/800/800"
+    ],
+    "tags": [
+      "keyboards"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Casual Mice Computer",
+    "description": "Casual mice for everyday wear",
+    "price": 479.66,
+    "department": "Electronics",
+    "category": "Computers",
+    "subcategory": "Accessories",
+    "productType": "Mice",
+    "brand": "Apple",
+    "sku": "APP-ELE-COM-079",
+    "images": [
+      "https://picsum.photos/id/178/800/800",
+      "https://picsum.photos/id/179/800/800",
+      "https://picsum.photos/id/180/800/800",
+      "https://picsum.photos/id/181/800/800"
+    ],
+    "tags": [
+      "mice"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Versatile Laptop Bags Computer",
+    "description": "Versatile laptop bags for everyday wear",
+    "price": 1045.67,
+    "department": "Electronics",
+    "category": "Computers",
+    "subcategory": "Accessories",
+    "productType": "Laptop Bags",
+    "brand": "Dell",
+    "sku": "DEL-ELE-COM-080",
+    "images": [
+      "https://picsum.photos/id/179/800/800",
+      "https://picsum.photos/id/180/800/800",
+      "https://picsum.photos/id/181/800/800",
+      "https://picsum.photos/id/182/800/800"
+    ],
+    "tags": [
+      "laptop-bags"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Modern Portable Gaming",
+    "description": "Modern portable for everyday wear",
+    "price": 1251.38,
+    "department": "Electronics",
+    "category": "Gaming",
+    "subcategory": "Consoles",
+    "productType": "Portable",
+    "brand": "Samsung",
+    "sku": "SAM-ELE-GAM-081",
+    "images": [
+      "https://picsum.photos/id/180/800/800",
+      "https://picsum.photos/id/181/800/800",
+      "https://picsum.photos/id/182/800/800",
+      "https://picsum.photos/id/183/800/800"
+    ],
+    "tags": [
+      "portable"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Athletic Home Console Gaming",
+    "description": "Athletic home console for everyday wear",
+    "price": 1409.97,
+    "department": "Electronics",
+    "category": "Gaming",
+    "subcategory": "Consoles",
+    "productType": "Home Console",
+    "brand": "Lenovo",
+    "sku": "LEN-ELE-GAM-082",
+    "images": [
+      "https://picsum.photos/id/181/800/800",
+      "https://picsum.photos/id/182/800/800",
+      "https://picsum.photos/id/183/800/800",
+      "https://picsum.photos/id/184/800/800"
+    ],
+    "tags": [
+      "home-console"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Trendy Controllers Gaming",
+    "description": "Trendy controllers for everyday wear",
+    "price": 1327.82,
+    "department": "Electronics",
+    "category": "Gaming",
+    "subcategory": "Accessories",
+    "productType": "Controllers",
+    "brand": "Apple",
+    "sku": "APP-ELE-GAM-083",
+    "images": [
+      "https://picsum.photos/id/182/800/800",
+      "https://picsum.photos/id/183/800/800",
+      "https://picsum.photos/id/184/800/800",
+      "https://picsum.photos/id/185/800/800"
+    ],
+    "tags": [
+      "controllers"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Luxury Headsets Gaming",
+    "description": "Luxury headsets for everyday wear",
+    "price": 1050.33,
+    "department": "Electronics",
+    "category": "Gaming",
+    "subcategory": "Accessories",
+    "productType": "Headsets",
+    "brand": "Dell",
+    "sku": "DEL-ELE-GAM-084",
+    "images": [
+      "https://picsum.photos/id/183/800/800",
+      "https://picsum.photos/id/184/800/800",
+      "https://picsum.photos/id/185/800/800",
+      "https://picsum.photos/id/186/800/800"
+    ],
+    "tags": [
+      "headsets"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Lightweight Storage Gaming",
+    "description": "Lightweight storage for everyday wear",
+    "price": 896.26,
+    "department": "Electronics",
+    "category": "Gaming",
+    "subcategory": "Accessories",
+    "productType": "Storage",
+    "brand": "Sony",
+    "sku": "SON-ELE-GAM-085",
+    "images": [
+      "https://picsum.photos/id/184/800/800",
+      "https://picsum.photos/id/185/800/800",
+      "https://picsum.photos/id/186/800/800",
+      "https://picsum.photos/id/187/800/800"
+    ],
+    "tags": [
+      "storage"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Timeless Performance Footwear",
+    "description": "Timeless performance for everyday wear",
+    "price": 157.41,
+    "department": "Sports",
+    "category": "Footwear",
+    "subcategory": "Running",
+    "productType": "Performance",
+    "brand": "Adidas",
+    "sku": "ADI-SPO-FOO-086",
+    "images": [
+      "https://picsum.photos/id/185/800/800",
+      "https://picsum.photos/id/186/800/800",
+      "https://picsum.photos/id/187/800/800",
+      "https://picsum.photos/id/188/800/800"
+    ],
+    "tags": [
+      "performance"
+    ],
+    "colors": [
+      "Red",
+      "White"
+    ],
+    "sizes": [
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Modern Trail Running Footwear",
+    "description": "Modern trail running for everyday wear",
+    "price": 197.06,
+    "department": "Sports",
+    "category": "Footwear",
+    "subcategory": "Running",
+    "productType": "Trail Running",
+    "brand": "Patagonia",
+    "sku": "PAT-SPO-FOO-087",
+    "images": [
+      "https://picsum.photos/id/186/800/800",
+      "https://picsum.photos/id/187/800/800",
+      "https://picsum.photos/id/188/800/800",
+      "https://picsum.photos/id/189/800/800"
+    ],
+    "tags": [
+      "trail-running"
+    ],
+    "colors": [
+      "Black",
+      "Red"
+    ],
+    "sizes": [
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Athletic High-Top Footwear",
+    "description": "Athletic high-top for everyday wear",
+    "price": 209.01,
+    "department": "Sports",
+    "category": "Footwear",
+    "subcategory": "Basketball",
+    "productType": "High-Top",
+    "brand": "Puma",
+    "sku": "PUM-SPO-FOO-088",
+    "images": [
+      "https://picsum.photos/id/187/800/800",
+      "https://picsum.photos/id/188/800/800",
+      "https://picsum.photos/id/189/800/800",
+      "https://picsum.photos/id/190/800/800"
+    ],
+    "tags": [
+      "high-top"
+    ],
+    "colors": [
+      "Black",
+      "White"
+    ],
+    "sizes": [
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Vintage Low-Top Footwear",
+    "description": "Vintage low-top for everyday wear",
+    "price": 88.91,
+    "department": "Sports",
+    "category": "Footwear",
+    "subcategory": "Basketball",
+    "productType": "Low-Top",
+    "brand": "Puma",
+    "sku": "PUM-SPO-FOO-089",
+    "images": [
+      "https://picsum.photos/id/188/800/800",
+      "https://picsum.photos/id/189/800/800",
+      "https://picsum.photos/id/190/800/800",
+      "https://picsum.photos/id/191/800/800"
+    ],
+    "tags": [
+      "low-top"
+    ],
+    "colors": [
+      "Red",
+      "Black"
+    ],
+    "sizes": [
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Modern Cross-Training Footwear",
+    "description": "Modern cross-training for everyday wear",
+    "price": 132.9,
+    "department": "Sports",
+    "category": "Footwear",
+    "subcategory": "Training",
+    "productType": "Cross-Training",
+    "brand": "Reebok",
+    "sku": "REE-SPO-FOO-090",
+    "images": [
+      "https://picsum.photos/id/189/800/800",
+      "https://picsum.photos/id/190/800/800",
+      "https://picsum.photos/id/191/800/800",
+      "https://picsum.photos/id/192/800/800"
+    ],
+    "tags": [
+      "cross-training"
+    ],
+    "colors": [
+      "Black",
+      "White"
+    ],
+    "sizes": [
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Trendy Gym Shoes Footwear",
+    "description": "Trendy gym shoes for everyday wear",
+    "price": 123.39,
+    "department": "Sports",
+    "category": "Footwear",
+    "subcategory": "Training",
+    "productType": "Gym Shoes",
+    "brand": "Patagonia",
+    "sku": "PAT-SPO-FOO-091",
+    "images": [
+      "https://picsum.photos/id/190/800/800",
+      "https://picsum.photos/id/191/800/800",
+      "https://picsum.photos/id/192/800/800",
+      "https://picsum.photos/id/193/800/800"
+    ],
+    "tags": [
+      "gym-shoes"
+    ],
+    "colors": [
+      "Black",
+      "Red"
+    ],
+    "sizes": [
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Luxury Fleece Apparel",
+    "description": "Luxury fleece for everyday wear",
+    "price": 237.01,
+    "department": "Sports",
+    "category": "Apparel",
+    "subcategory": "Jackets",
+    "productType": "Fleece",
+    "brand": "Under Armour",
+    "sku": "UND-SPO-APP-092",
+    "images": [
+      "https://picsum.photos/id/191/800/800",
+      "https://picsum.photos/id/192/800/800",
+      "https://picsum.photos/id/193/800/800",
+      "https://picsum.photos/id/194/800/800"
+    ],
+    "tags": [
+      "fleece"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Comfortable Running Jackets Apparel",
+    "description": "Comfortable running jackets for everyday wear",
+    "price": 208.59,
+    "department": "Sports",
+    "category": "Apparel",
+    "subcategory": "Jackets",
+    "productType": "Running Jackets",
+    "brand": "Reebok",
+    "sku": "REE-SPO-APP-093",
+    "images": [
+      "https://picsum.photos/id/192/800/800",
+      "https://picsum.photos/id/193/800/800",
+      "https://picsum.photos/id/194/800/800",
+      "https://picsum.photos/id/195/800/800"
+    ],
+    "tags": [
+      "running-jackets"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Essential Windbreakers Apparel",
+    "description": "Essential windbreakers for everyday wear",
+    "price": 172.63,
+    "department": "Sports",
+    "category": "Apparel",
+    "subcategory": "Jackets",
+    "productType": "Windbreakers",
+    "brand": "Reebok",
+    "sku": "REE-SPO-APP-094",
+    "images": [
+      "https://picsum.photos/id/193/800/800",
+      "https://picsum.photos/id/194/800/800",
+      "https://picsum.photos/id/195/800/800",
+      "https://picsum.photos/id/196/800/800"
+    ],
+    "tags": [
+      "windbreakers"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Elegant Training Apparel",
+    "description": "Elegant training for everyday wear",
+    "price": 53.04,
+    "department": "Sports",
+    "category": "Apparel",
+    "subcategory": "Shorts",
+    "productType": "Training",
+    "brand": "Adidas",
+    "sku": "ADI-SPO-APP-095",
+    "images": [
+      "https://picsum.photos/id/194/800/800",
+      "https://picsum.photos/id/195/800/800",
+      "https://picsum.photos/id/196/800/800",
+      "https://picsum.photos/id/197/800/800"
+    ],
+    "tags": [
+      "training"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Athletic Running Shorts Apparel",
+    "description": "Athletic running shorts for everyday wear",
+    "price": 221.97,
+    "department": "Sports",
+    "category": "Apparel",
+    "subcategory": "Shorts",
+    "productType": "Running Shorts",
+    "brand": "Under Armour",
+    "sku": "UND-SPO-APP-096",
+    "images": [
+      "https://picsum.photos/id/195/800/800",
+      "https://picsum.photos/id/196/800/800",
+      "https://picsum.photos/id/197/800/800",
+      "https://picsum.photos/id/198/800/800"
+    ],
+    "tags": [
+      "running-shorts"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Trendy Basketball Shorts Apparel",
+    "description": "Trendy basketball shorts for everyday wear",
+    "price": 117.79,
+    "department": "Sports",
+    "category": "Apparel",
+    "subcategory": "Shorts",
+    "productType": "Basketball Shorts",
+    "brand": "Adidas",
+    "sku": "ADI-SPO-APP-097",
+    "images": [
+      "https://picsum.photos/id/196/800/800",
+      "https://picsum.photos/id/197/800/800",
+      "https://picsum.photos/id/198/800/800",
+      "https://picsum.photos/id/199/800/800"
+    ],
+    "tags": [
+      "basketball-shorts"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Professional Leggings Apparel",
+    "description": "Professional leggings for everyday wear",
+    "price": 113.9,
+    "department": "Sports",
+    "category": "Apparel",
+    "subcategory": "Activewear",
+    "productType": "Leggings",
+    "brand": "Reebok",
+    "sku": "REE-SPO-APP-098",
+    "images": [
+      "https://picsum.photos/id/197/800/800",
+      "https://picsum.photos/id/198/800/800",
+      "https://picsum.photos/id/199/800/800",
+      "https://picsum.photos/id/200/800/800"
+    ],
+    "tags": [
+      "leggings"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Lightweight Sports Bras Apparel",
+    "description": "Lightweight sports bras for everyday wear",
+    "price": 72.54,
+    "department": "Sports",
+    "category": "Apparel",
+    "subcategory": "Activewear",
+    "productType": "Sports Bras",
+    "brand": "Under Armour",
+    "sku": "UND-SPO-APP-099",
+    "images": [
+      "https://picsum.photos/id/198/800/800",
+      "https://picsum.photos/id/199/800/800",
+      "https://picsum.photos/id/200/800/800",
+      "https://picsum.photos/id/201/800/800"
+    ],
+    "tags": [
+      "sports-bras"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "Versatile Compression Wear Apparel",
+    "description": "Versatile compression wear for everyday wear",
+    "price": 192.08,
+    "department": "Sports",
+    "category": "Apparel",
+    "subcategory": "Activewear",
+    "productType": "Compression Wear",
+    "brand": "Under Armour",
+    "sku": "UND-SPO-APP-100",
+    "images": [
+      "https://picsum.photos/id/199/800/800",
+      "https://picsum.photos/id/200/800/800",
+      "https://picsum.photos/id/201/800/800",
+      "https://picsum.photos/id/202/800/800"
+    ],
+    "tags": [
+      "compression-wear"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Material": "Premium Materials",
+      "Quality": "High Quality",
+      "Origin": "Imported"
+    }
+  },
+  {
+    "name": "The Midnight Library",
+    "description": "A dazzling novel about all the choices that go into a life well lived. Between life and death there is a library, and within that library, the shelves go on forever.",
+    "price": 16.99,
+    "department": "Books",
+    "category": "Fiction",
+    "subcategory": "Contemporary",
+    "productType": "Novel",
+    "brand": "Penguin Random House",
+    "sku": "PRH-BOO-FIC-001",
+    "images": [
+      "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=800",
+      "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=800"
+    ],
+    "tags": [
+      "fiction",
+      "contemporary",
+      "bestseller"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Format": "Paperback",
+      "Pages": "304",
+      "Publisher": "Penguin Random House",
+      "Language": "English",
+      "ISBN": "978-0525559474"
+    }
+  },
+  {
+    "name": "Where the Crawdads Sing",
+    "description": "A captivating mystery about a young woman raised in the marshes of North Carolina. For years, rumors of the 'Marsh Girl' have haunted Barkley Cove.",
+    "price": 15.99,
+    "department": "Books",
+    "category": "Fiction",
+    "subcategory": "Contemporary",
+    "productType": "Novel",
+    "brand": "Penguin Random House",
+    "sku": "PRH-BOO-FIC-002",
+    "images": [
+      "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=800",
+      "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=800"
+    ],
+    "tags": [
+      "fiction",
+      "contemporary",
+      "mystery"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Format": "Paperback",
+      "Pages": "384",
+      "Publisher": "Penguin Random House",
+      "Language": "English",
+      "ISBN": "978-0735219090"
+    }
+  },
+  {
+    "name": "The Lord of the Rings",
+    "description": "Epic high-fantasy novel and one of the best-selling books ever written. Follow Frodo Baggins on his quest to destroy the One Ring in the fires of Mount Doom.",
+    "price": 24.99,
+    "department": "Books",
+    "category": "Fiction",
+    "subcategory": "Fantasy",
+    "productType": "Novel",
+    "brand": "HarperCollins",
+    "sku": "HAR-BOO-FIC-003",
+    "images": [
+      "https://images.unsplash.com/photo-1621351183012-e2f9972dd9bf?w=800",
+      "https://images.unsplash.com/photo-1612178537253-bccd437b730e?w=800"
+    ],
+    "tags": [
+      "fiction",
+      "fantasy",
+      "classic"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Format": "Paperback",
+      "Pages": "1178",
+      "Publisher": "HarperCollins",
+      "Language": "English",
+      "ISBN": "978-0544003415"
+    }
+  },
+  {
+    "name": "Harry Potter and the Philosopher's Stone",
+    "description": "The first novel in the Harry Potter series. Follow Harry as he discovers he's a wizard and begins his magical education at Hogwarts School of Witchcraft and Wizardry.",
+    "price": 12.99,
+    "department": "Books",
+    "category": "Fiction",
+    "subcategory": "Fantasy",
+    "productType": "Novel",
+    "brand": "Scholastic",
+    "sku": "SCH-BOO-FIC-004",
+    "images": [
+      "https://images.unsplash.com/photo-1600189261867-30e5ffe7b8da?w=800",
+      "https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=800"
+    ],
+    "tags": [
+      "fiction",
+      "fantasy",
+      "young-adult"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Format": "Paperback",
+      "Pages": "309",
+      "Publisher": "Scholastic",
+      "Language": "English",
+      "ISBN": "978-0590353427"
+    }
+  },
+  {
+    "name": "A Game of Thrones",
+    "description": "The first book in A Song of Ice and Fire series. In a land where summers span decades and winters can last a lifetime, trouble is brewing.",
+    "price": 18.99,
+    "department": "Books",
+    "category": "Fiction",
+    "subcategory": "Fantasy",
+    "productType": "Novel",
+    "brand": "Bantam Books",
+    "sku": "BAN-BOO-FIC-005",
+    "images": [
+      "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=800",
+      "https://images.unsplash.com/photo-1518213501058-1f5f4b02c206?w=800"
+    ],
+    "tags": [
+      "fiction",
+      "fantasy",
+      "epic"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Format": "Paperback",
+      "Pages": "835",
+      "Publisher": "Bantam Books",
+      "Language": "English",
+      "ISBN": "978-0553593716"
+    }
+  },
+  {
+    "name": "Atomic Habits",
+    "description": "An easy and proven way to build good habits and break bad ones. Tiny changes, remarkable results. Transform your life with James Clear's groundbreaking system.",
+    "price": 14.99,
+    "department": "Books",
+    "category": "Nonfiction",
+    "subcategory": "SelfHelp",
+    "productType": "Self-Help",
+    "brand": "Penguin Random House",
+    "sku": "PRH-BOO-NON-006",
+    "images": [
+      "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=800",
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800"
+    ],
+    "tags": [
+      "nonfiction",
+      "self-help",
+      "bestseller"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Format": "Hardcover",
+      "Pages": "320",
+      "Publisher": "Penguin Random House",
+      "Language": "English",
+      "ISBN": "978-0735211292"
+    }
+  },
+  {
+    "name": "Thinking, Fast and Slow",
+    "description": "Engaging exploration of two systems that drive the way we think. System 1 is fast, intuitive, and emotional; System 2 is slower, more deliberative, and more logical.",
+    "price": 17.99,
+    "department": "Books",
+    "category": "Nonfiction",
+    "subcategory": "SelfHelp",
+    "productType": "Psychology",
+    "brand": "Farrar, Straus and Giroux",
+    "sku": "FSG-BOO-NON-007",
+    "images": [
+      "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?w=800",
+      "https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=800"
+    ],
+    "tags": [
+      "nonfiction",
+      "psychology",
+      "behavioral-economics"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Format": "Paperback",
+      "Pages": "499",
+      "Publisher": "Farrar, Straus and Giroux",
+      "Language": "English",
+      "ISBN": "978-0374533557"
+    }
+  },
+  {
+    "name": "The Power of Now",
+    "description": "A guide to spiritual enlightenment. Learn to live in the present moment and find inner peace. A worldwide bestseller that has helped millions.",
+    "price": 13.99,
+    "department": "Books",
+    "category": "Nonfiction",
+    "subcategory": "SelfHelp",
+    "productType": "Spirituality",
+    "brand": "New World Library",
+    "sku": "NWL-BOO-NON-008",
+    "images": [
+      "https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=800",
+      "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800"
+    ],
+    "tags": [
+      "nonfiction",
+      "spirituality",
+      "mindfulness"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Format": "Paperback",
+      "Pages": "236",
+      "Publisher": "New World Library",
+      "Language": "English",
+      "ISBN": "978-1577314806"
+    }
+  },
+  {
+    "name": "Educated: A Memoir",
+    "description": "A remarkable memoir about a young woman who, kept out of school, leaves her survivalist family and goes on to earn a PhD from Cambridge University.",
+    "price": 16.99,
+    "department": "Books",
+    "category": "Nonfiction",
+    "subcategory": "Biography",
+    "productType": "Memoir",
+    "brand": "Penguin Random House",
+    "sku": "PRH-BOO-NON-009",
+    "images": [
+      "https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=800",
+      "https://images.unsplash.com/photo-1532012197267-da84d127e765?w=800"
+    ],
+    "tags": [
+      "nonfiction",
+      "biography",
+      "memoir"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Format": "Paperback",
+      "Pages": "352",
+      "Publisher": "Penguin Random House",
+      "Language": "English",
+      "ISBN": "978-0399590504"
+    }
+  },
+  {
+    "name": "Steve Jobs",
+    "description": "The exclusive biography of Steve Jobs. Based on more than forty interviews with Jobs conducted over two years, as well as interviews with family, friends, and colleagues.",
+    "price": 19.99,
+    "department": "Books",
+    "category": "Nonfiction",
+    "subcategory": "Biography",
+    "productType": "Biography",
+    "brand": "Simon & Schuster",
+    "sku": "SAS-BOO-NON-010",
+    "images": [
+      "https://images.unsplash.com/photo-1544716278-e513176f20b5?w=800",
+      "https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=800"
+    ],
+    "tags": [
+      "nonfiction",
+      "biography",
+      "technology"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Format": "Hardcover",
+      "Pages": "656",
+      "Publisher": "Simon & Schuster",
+      "Language": "English",
+      "ISBN": "978-1451648539"
+    }
+  },
+  {
+    "name": "Becoming",
+    "description": "An intimate, powerful, and inspiring memoir by the former First Lady of the United States. Michelle Obama invites readers into her world.",
+    "price": 18.99,
+    "department": "Books",
+    "category": "Nonfiction",
+    "subcategory": "Biography",
+    "productType": "Memoir",
+    "brand": "Crown Publishing",
+    "sku": "CRO-BOO-NON-011",
+    "images": [
+      "https://images.unsplash.com/photo-1524578271613-d550eacf6090?w=800",
+      "https://images.unsplash.com/photo-1491841573634-28140fc7ced7?w=800"
+    ],
+    "tags": [
+      "nonfiction",
+      "biography",
+      "memoir"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Format": "Hardcover",
+      "Pages": "448",
+      "Publisher": "Crown Publishing",
+      "Language": "English",
+      "ISBN": "978-1524763138"
+    }
+  },
+  {
+    "name": "The Subtle Art of Not Giving a F*ck",
+    "description": "A counterintuitive approach to living a good life. In this generation-defining self-help guide, a superstar blogger cuts through the crap.",
+    "price": 15.99,
+    "department": "Books",
+    "category": "Nonfiction",
+    "subcategory": "SelfHelp",
+    "productType": "Self-Help",
+    "brand": "HarperCollins",
+    "sku": "HAR-BOO-NON-012",
+    "images": [
+      "https://images.unsplash.com/photo-1550399105-c4db5fb85c18?w=800",
+      "https://images.unsplash.com/photo-1589998059171-988d887df646?w=800"
+    ],
+    "tags": [
+      "nonfiction",
+      "self-help",
+      "philosophy"
+    ],
+    "colors": [],
+    "sizes": [],
+    "specifications": {
+      "Format": "Paperback",
+      "Pages": "224",
+      "Publisher": "HarperCollins",
+      "Language": "English",
+      "ISBN": "978-0062457714"
+    }
+  }
+]
