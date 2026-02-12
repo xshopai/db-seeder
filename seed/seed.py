@@ -8,7 +8,6 @@ Usage:
     python seed.py --users          # Seed users only
     python seed.py --products       # Seed products only
     python seed.py --inventory      # Seed inventory only
-    python seed.py --clear          # Clear all seed data first
 """
 
 import os
@@ -56,8 +55,8 @@ def hash_password(password: str) -> str:
         return hashes.get(password, hashes['guest'])
 
 
-def seed_users(clear_first: bool = False):
-    """Seed users into user-service MongoDB."""
+def seed_users():
+    """Seed users into user-service MongoDB. Always clears existing demo data first."""
     try:
         from pymongo import MongoClient
     except ImportError:
@@ -77,22 +76,17 @@ def seed_users(clear_first: bool = False):
         db = client[db_name]
         users_collection = db['users']
         
-        if clear_first:
-            result = users_collection.delete_many({'email': {'$in': ['guest@xshopai.com', 'admin@xshopai.com']}})
-            print(f"🧹 Cleared {result.deleted_count} existing demo users")
-        
-        # Load and seed users
+        # Clear existing demo users
         users_data = load_json('users.json')
+        demo_emails = [u['email'] for u in users_data]
+        result = users_collection.delete_many({'email': {'$in': demo_emails}})
+        if result.deleted_count:
+            print(f"  🧹 Cleared {result.deleted_count} existing demo users")
+        
+        # Seed users
         seeded = 0
-        skipped = 0
         
         for user in users_data:
-            # Check if user already exists
-            existing = users_collection.find_one({'email': user['email']})
-            if existing:
-                print(f"  ⏭️  User {user['email']} already exists, skipping")
-                skipped += 1
-                continue
             
             # Prepare user document
             user_doc = {
@@ -108,7 +102,7 @@ def seed_users(clear_first: bool = False):
             seeded += 1
         
         client.close()
-        print(f"👤 Users: {seeded} seeded, {skipped} skipped")
+        print(f"👤 Users: {seeded} seeded")
         return True
         
     except Exception as e:
@@ -116,8 +110,8 @@ def seed_users(clear_first: bool = False):
         return False
 
 
-def seed_products(clear_first: bool = False):
-    """Seed products into product-service MongoDB."""
+def seed_products():
+    """Seed products into product-service MongoDB. Always clears existing demo data first."""
     try:
         from pymongo import MongoClient
     except ImportError:
@@ -136,25 +130,17 @@ def seed_products(clear_first: bool = False):
         db = client[db_name]
         products_collection = db['products']
         
-        if clear_first:
-            # Get all demo SKUs
-            products_data = load_json('products.json')
-            demo_skus = [p['sku'] for p in products_data]
-            result = products_collection.delete_many({'sku': {'$in': demo_skus}})
-            print(f"🧹 Cleared {result.deleted_count} existing demo products")
-        
-        # Load and seed products
+        # Clear existing demo products
         products_data = load_json('products.json')
+        demo_skus = [p['sku'] for p in products_data]
+        result = products_collection.delete_many({'sku': {'$in': demo_skus}})
+        if result.deleted_count:
+            print(f"  🧹 Cleared {result.deleted_count} existing demo products")
+        
+        # Seed products
         seeded = 0
-        skipped = 0
         
         for product in products_data:
-            # Check if product already exists by SKU
-            existing = products_collection.find_one({'sku': product['sku']})
-            if existing:
-                print(f"  ⏭️  Product {product['sku']} already exists, skipping")
-                skipped += 1
-                continue
             
             # Transform to product-service schema (taxonomy nested object, snake_case)
             product_doc = {
@@ -193,7 +179,7 @@ def seed_products(clear_first: bool = False):
             seeded += 1
         
         client.close()
-        print(f"📦 Products: {seeded} seeded, {skipped} skipped")
+        print(f"📦 Products: {seeded} seeded")
         return True
         
     except Exception as e:
@@ -201,11 +187,95 @@ def seed_products(clear_first: bool = False):
         return False
 
 
-def seed_inventory(clear_first: bool = False):
+def _ensure_inventory_schema(cursor, conn):
+    """Create inventory-service tables if they don't exist.
+    
+    Mirrors the schema from inventory-service Alembic migration
+    (migrations/versions/001_initial_schema.py) so the seed script
+    can set up the database without running the inventory service.
+    """
+    cursor.execute("SHOW TABLES LIKE 'inventory_items'")
+    if cursor.fetchone():
+        print("  ✅ Schema already exists, skipping creation")
+        return
+
+    print("  🔨 Creating inventory schema (tables don't exist yet)...")
+
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS inventory_items (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            sku VARCHAR(100) NOT NULL,
+            quantity_available INT NOT NULL DEFAULT 0,
+            quantity_reserved INT NOT NULL DEFAULT 0,
+            reorder_level INT NOT NULL DEFAULT 10,
+            max_stock INT NOT NULL DEFAULT 1000,
+            cost_per_unit DECIMAL(10,2) DEFAULT 0.00,
+            last_restocked DATETIME NULL,
+            created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+            UNIQUE INDEX ix_inventory_items_sku (sku)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+    """)
+
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS reservations (
+            id VARCHAR(36) PRIMARY KEY,
+            order_id VARCHAR(36) NOT NULL,
+            sku VARCHAR(100) NOT NULL,
+            quantity INT NOT NULL,
+            status ENUM('PENDING','ACTIVE','CONFIRMED','RELEASED','EXPIRED','CANCELLED') NOT NULL DEFAULT 'PENDING',
+            expires_at DATETIME NOT NULL,
+            created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+            INDEX ix_reservations_order_id (order_id),
+            INDEX ix_reservations_sku (sku),
+            INDEX ix_reservations_status (status),
+            INDEX ix_reservations_expires_at (expires_at),
+            CONSTRAINT fk_reservations_sku FOREIGN KEY (sku) REFERENCES inventory_items(sku) ON DELETE CASCADE
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+    """)
+
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS stock_movements (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            sku VARCHAR(100) NOT NULL,
+            movement_type ENUM('IN','OUT','RESERVED','RELEASED','ADJUSTMENT') NOT NULL,
+            quantity INT NOT NULL,
+            reference VARCHAR(255) NULL,
+            reason TEXT NULL,
+            created_by VARCHAR(100) NOT NULL DEFAULT 'system',
+            created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            INDEX ix_stock_movements_sku (sku),
+            INDEX ix_stock_movements_type (movement_type),
+            INDEX ix_stock_movements_reference (reference),
+            INDEX ix_stock_movements_created_at (created_at),
+            CONSTRAINT fk_stock_movements_sku FOREIGN KEY (sku) REFERENCES inventory_items(sku) ON DELETE CASCADE
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+    """)
+
+    # Create alembic_version table so Flask-Migrate doesn't re-run migrations
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS alembic_version (
+            version_num VARCHAR(32) NOT NULL,
+            CONSTRAINT alembic_version_pkc PRIMARY KEY (version_num)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+    """)
+    cursor.execute("""
+        INSERT IGNORE INTO alembic_version (version_num) VALUES ('001_initial')
+    """)
+
+    conn.commit()
+    print("  ✅ Schema created (inventory_items, reservations, stock_movements)")
+
+
+def seed_inventory():
     """Seed inventory into inventory-service MySQL with variant SKUs.
     
-    Generates variant SKUs in format: BASE-COLOR-SIZE (e.g., WOM-CLO-TOP-001-WHITE-XS)
+    Always clears existing demo data first.
     Distributes base quantity evenly across all color/size combinations.
+    
+    Automatically creates the required tables if they don't exist,
+    so the inventory service doesn't need to be running.
     """
     try:
         import mysql.connector
@@ -241,6 +311,9 @@ def seed_inventory(clear_first: bool = False):
         conn = mysql.connector.connect(**config)
         cursor = conn.cursor()
         
+        # Ensure schema exists (no need to run the inventory service)
+        _ensure_inventory_schema(cursor, conn)
+        
         # Load inventory and products data
         inventory_data = load_json('inventory.json')
         products_data = load_json('products.json')
@@ -257,17 +330,20 @@ def seed_inventory(clear_first: bool = False):
         # Collect all base SKUs and their variant patterns for clearing
         demo_skus = [item['sku'] for item in inventory_data]
         
-        if clear_first:
-            # Clear base SKUs and all variant SKUs (pattern: BASE-%)
-            for base_sku in demo_skus:
-                cursor.execute("DELETE FROM inventory_items WHERE sku = %s OR sku LIKE %s", 
-                              (base_sku, f"{base_sku}-%"))
-            print(f"🧹 Cleared existing demo inventory items (base + variants)")
-            conn.commit()
+        # Always clear existing demo inventory (base + variant SKUs)
+        # Must clear reservations/stock_movements first (FK constraints)
+        for base_sku in demo_skus:
+            cursor.execute("DELETE FROM stock_movements WHERE sku = %s OR sku LIKE %s",
+                          (base_sku, f"{base_sku}-%"))
+            cursor.execute("DELETE FROM reservations WHERE sku = %s OR sku LIKE %s",
+                          (base_sku, f"{base_sku}-%"))
+            cursor.execute("DELETE FROM inventory_items WHERE sku = %s OR sku LIKE %s", 
+                          (base_sku, f"{base_sku}-%"))
+        conn.commit()
+        print(f"  🧹 Cleared existing demo inventory items (base + variants)")
         
         # Seed inventory with variant SKUs
         seeded = 0
-        skipped = 0
         variant_count = 0
         
         for item in inventory_data:
@@ -291,13 +367,6 @@ def seed_inventory(clear_first: bool = False):
                         color_code = color.upper().replace(' ', '-')
                         size_code = size.upper()
                         variant_sku = f"{base_sku}-{color_code}-{size_code}"
-                        
-                        # Check if variant already exists
-                        cursor.execute("SELECT id FROM inventory_items WHERE sku = %s", (variant_sku,))
-                        if cursor.fetchone():
-                            skipped += 1
-                            variant_index += 1
-                            continue
                         
                         # Add extra quantity to first variants to avoid losing items
                         quantity = quantity_per_variant + (1 if variant_index < extra_quantity else 0)
@@ -323,12 +392,6 @@ def seed_inventory(clear_first: bool = False):
                 seeded += 1
             else:
                 # No colors/sizes - create base SKU inventory only
-                cursor.execute("SELECT id FROM inventory_items WHERE sku = %s", (base_sku,))
-                if cursor.fetchone():
-                    print(f"  ⏭️  Inventory {base_sku} already exists, skipping")
-                    skipped += 1
-                    continue
-                
                 cursor.execute("""
                     INSERT INTO inventory_items 
                     (sku, quantity_available, quantity_reserved, reorder_level, max_stock, cost_per_unit, created_at, updated_at)
@@ -348,7 +411,7 @@ def seed_inventory(clear_first: bool = False):
         cursor.close()
         conn.close()
         
-        print(f"📊 Inventory: {seeded} products seeded, {variant_count} variant SKUs created, {skipped} skipped")
+        print(f"📊 Inventory: {seeded} products seeded, {variant_count} variant SKUs created")
         return True
         
     except mysql.connector.Error as e:
@@ -361,7 +424,6 @@ def main():
     parser.add_argument('--users', action='store_true', help='Seed users only')
     parser.add_argument('--products', action='store_true', help='Seed products only')
     parser.add_argument('--inventory', action='store_true', help='Seed inventory only')
-    parser.add_argument('--clear', action='store_true', help='Clear existing demo data first')
     args = parser.parse_args()
     
     # If no specific target, seed all
@@ -376,17 +438,17 @@ def main():
     
     if seed_all or args.users:
         print("🔹 Seeding Users...")
-        results.append(('Users', seed_users(args.clear)))
+        results.append(('Users', seed_users()))
         print()
     
     if seed_all or args.products:
         print("🔹 Seeding Products...")
-        results.append(('Products', seed_products(args.clear)))
+        results.append(('Products', seed_products()))
         print()
     
     if seed_all or args.inventory:
         print("🔹 Seeding Inventory...")
-        results.append(('Inventory', seed_inventory(args.clear)))
+        results.append(('Inventory', seed_inventory()))
         print()
     
     # Summary
