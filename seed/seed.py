@@ -85,7 +85,7 @@ def hash_password(password: str) -> str:
         return hashes.get(password, hashes['guest'])
 
 
-def seed_users():
+def seed_users(clear_all=False):
     """Seed users into user-service MongoDB. Always clears existing demo data first."""
     try:
         from pymongo import MongoClient
@@ -106,12 +106,17 @@ def seed_users():
         db = client[db_name]
         users_collection = db['users']
         
-        # Clear existing demo users
+        # Clear data
         users_data = load_json('users.json')
-        demo_emails = [u['email'] for u in users_data]
-        result = users_collection.delete_many({'email': {'$in': demo_emails}})
-        if result.deleted_count:
-            print(f"  🧹 Cleared {result.deleted_count} existing demo users")
+        if clear_all:
+            result = users_collection.delete_many({})
+            print(f"  🧹 Cleared ALL {result.deleted_count} users")
+        else:
+            # Clear only demo users
+            demo_emails = [u['email'] for u in users_data]
+            result = users_collection.delete_many({'email': {'$in': demo_emails}})
+            if result.deleted_count:
+                print(f"  🧹 Cleared {result.deleted_count} existing demo users")
         
         # Seed users
         seeded = 0
@@ -140,7 +145,7 @@ def seed_users():
         return False
 
 
-def seed_products():
+def seed_products(clear_all=False):
     """Seed products into product-service MongoDB. Always clears existing demo data first."""
     try:
         from pymongo import MongoClient
@@ -160,12 +165,17 @@ def seed_products():
         db = client[db_name]
         products_collection = db['products']
         
-        # Clear existing demo products
+        # Clear data
         products_data = load_json('products.json')
-        demo_skus = [p['sku'] for p in products_data]
-        result = products_collection.delete_many({'sku': {'$in': demo_skus}})
-        if result.deleted_count:
-            print(f"  🧹 Cleared {result.deleted_count} existing demo products")
+        if clear_all:
+            result = products_collection.delete_many({})
+            print(f"  🧹 Cleared ALL {result.deleted_count} products")
+        else:
+            # Clear only demo products
+            demo_skus = [p['sku'] for p in products_data]
+            result = products_collection.delete_many({'sku': {'$in': demo_skus}})
+            if result.deleted_count:
+                print(f"  🧹 Cleared {result.deleted_count} existing demo products")
         
         # Seed products
         seeded = 0
@@ -307,7 +317,7 @@ def _ensure_inventory_schema(cursor, conn):
     print("  ✅ Schema created (inventory_items, reservations, stock_movements)")
 
 
-def seed_inventory():
+def seed_inventory(clear_all=False):
     """Seed inventory into inventory-service MySQL with variant SKUs.
     
     Always clears existing demo data first.
@@ -366,20 +376,26 @@ def seed_inventory():
                     'sizes': product['sizes']
                 }
         
-        # Collect all base SKUs and their variant patterns for clearing
-        demo_skus = [item['sku'] for item in inventory_data]
-        
-        # Always clear existing demo inventory (base + variant SKUs)
-        # Must clear reservations/stock_movements first (FK constraints)
-        for base_sku in demo_skus:
-            cursor.execute("DELETE FROM stock_movements WHERE sku = %s OR sku LIKE %s",
-                          (base_sku, f"{base_sku}-%"))
-            cursor.execute("DELETE FROM reservations WHERE sku = %s OR sku LIKE %s",
-                          (base_sku, f"{base_sku}-%"))
-            cursor.execute("DELETE FROM inventory_items WHERE sku = %s OR sku LIKE %s", 
-                          (base_sku, f"{base_sku}-%"))
-        conn.commit()
-        print(f"  🧹 Cleared existing demo inventory items (base + variants)")
+        # Clear data
+        if clear_all:
+            # Clear ALL inventory data (must respect FK constraints)
+            cursor.execute("DELETE FROM stock_movements")
+            cursor.execute("DELETE FROM reservations")
+            cursor.execute("DELETE FROM inventory_items")
+            conn.commit()
+            print(f"  🧹 Cleared ALL inventory data")
+        else:
+            # Clear only demo inventory (base + variant SKUs)
+            demo_skus = [item['sku'] for item in inventory_data]
+            for base_sku in demo_skus:
+                cursor.execute("DELETE FROM stock_movements WHERE sku = %s OR sku LIKE %s",
+                              (base_sku, f"{base_sku}-%"))
+                cursor.execute("DELETE FROM reservations WHERE sku = %s OR sku LIKE %s",
+                              (base_sku, f"{base_sku}-%"))
+                cursor.execute("DELETE FROM inventory_items WHERE sku = %s OR sku LIKE %s", 
+                              (base_sku, f"{base_sku}-%"))
+            conn.commit()
+            print(f"  🧹 Cleared existing demo inventory items (base + variants)")
         
         # Seed inventory with variant SKUs
         seeded = 0
@@ -463,6 +479,7 @@ def main():
     parser.add_argument('--users', action='store_true', help='Seed users only')
     parser.add_argument('--products', action='store_true', help='Seed products only')
     parser.add_argument('--inventory', action='store_true', help='Seed inventory only')
+    parser.add_argument('--clear-all', action='store_true', help='Clear ALL data before seeding (not just demo data)')
     args = parser.parse_args()
     
     # If no specific target, seed all
@@ -470,6 +487,8 @@ def main():
     
     print("=" * 60)
     print("🌱 xshopai Database Seeder")
+    if args.clear_all:
+        print("⚠️  CLEAR ALL MODE: Will delete ALL data before seeding!")
     print("=" * 60)
     print()
     
@@ -477,17 +496,17 @@ def main():
     
     if seed_all or args.users:
         print("🔹 Seeding Users...")
-        results.append(('Users', seed_users()))
+        results.append(('Users', seed_users(clear_all=args.clear_all)))
         print()
     
     if seed_all or args.products:
         print("🔹 Seeding Products...")
-        results.append(('Products', seed_products()))
+        results.append(('Products', seed_products(clear_all=args.clear_all)))
         print()
     
     if seed_all or args.inventory:
         print("🔹 Seeding Inventory...")
-        results.append(('Inventory', seed_inventory()))
+        results.append(('Inventory', seed_inventory(clear_all=args.clear_all)))
         print()
     
     # Summary
