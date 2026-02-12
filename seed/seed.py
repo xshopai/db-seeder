@@ -504,8 +504,8 @@ def main():
     if all_success:
         print()
         print("🎉 Seeding complete! Demo credentials:")
-        print("   👤 Customer: guest@xshopai.com / guest")
-        print("   👑 Admin:    admin@xshopai.com / admin")
+        print("   👤 Customer: guest@xshopai.com / Guest123!")
+        print("   👑 Admin:    admin@xshopai.com / Admin123!")
         print()
     
     sys.exit(0 if all_success else 1)
