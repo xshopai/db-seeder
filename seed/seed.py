@@ -25,6 +25,36 @@ except ImportError:
     pass
 
 
+def generate_variant_sku(base_sku: str, color: str = None, size: str = None) -> str:
+    """Generate variant SKU from base SKU, color, and size.
+    
+    Example: "WOM-CLO-TOP-001" + "Black" + "M" -> "WOM-CLO-TOP-001-BLACK-M"
+    """
+    import re
+    variant_sku = base_sku
+    if color:
+        # Remove non-alphanumeric characters and uppercase
+        clean_color = re.sub(r'[^A-Z0-9]', '', color.upper())
+        variant_sku += f"-{clean_color}"
+    if size:
+        clean_size = re.sub(r'[^A-Z0-9]', '', size.upper())
+        variant_sku += f"-{clean_size}"
+    return variant_sku
+
+
+def generate_variants(base_sku: str, colors: list, sizes: list) -> list:
+    """Generate all variant SKUs for color/size combinations."""
+    variants = []
+    for color in colors:
+        for size in sizes:
+            variants.append({
+                'sku': generate_variant_sku(base_sku, color, size),
+                'color': color,
+                'size': size
+            })
+    return variants
+
+
 def get_data_path(filename: str) -> Path:
     """Get path to data file."""
     return Path(__file__).parent / "data" / filename
@@ -142,17 +172,26 @@ def seed_products():
         
         for product in products_data:
             
+            # Get colors and sizes with defaults
+            colors = product.get('colors', ['Black', 'White'])
+            sizes = product.get('sizes', ['M', 'L'])
+            base_sku = product['sku']
+            
+            # Generate variant SKUs for each color/size combination
+            variants = generate_variants(base_sku, colors, sizes)
+            
             # Transform to product-service schema (taxonomy nested object, snake_case)
             product_doc = {
                 'name': product['name'],
                 'description': product['description'],
                 'price': product['price'],
                 'brand': product.get('brand', ''),
-                'sku': product['sku'],
+                'sku': base_sku,
                 'images': product.get('images', []),
                 'tags': product.get('tags', []),
-                'colors': product.get('colors', []),
-                'sizes': product.get('sizes', []),
+                'colors': colors,
+                'sizes': sizes,
+                'variants': variants,  # Pre-computed variant SKUs
                 'specifications': product.get('specifications', {}),
                 # Taxonomy as nested object (product-service schema)
                 'taxonomy': {
