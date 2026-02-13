@@ -368,13 +368,18 @@ def seed_inventory(clear_all=False):
         products_data = load_json('products.json')
         
         # Create a map of base SKU to product colors/sizes
+        # Include products with colors OR sizes (not both required)
         product_map = {}
         for product in products_data:
-            if product.get('sku') and product.get('colors') and product.get('sizes'):
-                product_map[product['sku']] = {
-                    'colors': product['colors'],
-                    'sizes': product['sizes']
-                }
+            if product.get('sku'):
+                colors = product.get('colors', [])
+                sizes = product.get('sizes', [])
+                # Only add to map if product has colors or sizes
+                if colors or sizes:
+                    product_map[product['sku']] = {
+                        'colors': colors,
+                        'sizes': sizes
+                    }
         
         # Clear data
         if clear_all:
@@ -405,8 +410,11 @@ def seed_inventory(clear_all=False):
             base_sku = item['sku']
             product = product_map.get(base_sku)
             
-            # If product has colors and sizes, create variant SKUs
-            if product and len(product['colors']) > 0 and len(product['sizes']) > 0:
+            has_colors = product and len(product['colors']) > 0
+            has_sizes = product and len(product['sizes']) > 0
+            
+            # Case 1: Product has BOTH colors AND sizes - create color-size variants
+            if has_colors and has_sizes:
                 colors = product['colors']
                 sizes = product['sizes']
                 total_variants = len(colors) * len(sizes)
@@ -445,8 +453,73 @@ def seed_inventory(clear_all=False):
                 
                 print(f"  ✅ Created {len(colors) * len(sizes)} variants for: {base_sku}")
                 seeded += 1
+            
+            # Case 2: Product has sizes but NO colors (e.g., Books with Paperback/Hardcover/Audiobook)
+            elif has_sizes and not has_colors:
+                sizes = product['sizes']
+                total_variants = len(sizes)
+                
+                # Distribute base quantity evenly across variants
+                quantity_per_variant = max(1, item['quantity_available'] // total_variants)
+                extra_quantity = item['quantity_available'] % total_variants
+                
+                for idx, size in enumerate(sizes):
+                    # Generate variant SKU: BASE-SIZE (uppercase)
+                    size_code = size.upper().replace(' ', '-')
+                    variant_sku = f"{base_sku}-{size_code}"
+                    
+                    quantity = quantity_per_variant + (1 if idx < extra_quantity else 0)
+                    
+                    cursor.execute("""
+                        INSERT INTO inventory_items 
+                        (sku, quantity_available, quantity_reserved, reorder_level, max_stock, cost_per_unit, created_at, updated_at)
+                        VALUES (%s, %s, %s, %s, %s, %s, NOW(), NOW())
+                    """, (
+                        variant_sku,
+                        quantity,
+                        0,
+                        max(1, item['reorder_level'] // total_variants),
+                        max(10, item['max_stock'] // total_variants),
+                        item['cost_per_unit'],
+                    ))
+                    variant_count += 1
+                
+                print(f"  ✅ Created {len(sizes)} size variants for: {base_sku}")
+                seeded += 1
+            
+            # Case 3: Product has colors but NO sizes
+            elif has_colors and not has_sizes:
+                colors = product['colors']
+                total_variants = len(colors)
+                
+                quantity_per_variant = max(1, item['quantity_available'] // total_variants)
+                extra_quantity = item['quantity_available'] % total_variants
+                
+                for idx, color in enumerate(colors):
+                    color_code = color.upper().replace(' ', '-')
+                    variant_sku = f"{base_sku}-{color_code}"
+                    
+                    quantity = quantity_per_variant + (1 if idx < extra_quantity else 0)
+                    
+                    cursor.execute("""
+                        INSERT INTO inventory_items 
+                        (sku, quantity_available, quantity_reserved, reorder_level, max_stock, cost_per_unit, created_at, updated_at)
+                        VALUES (%s, %s, %s, %s, %s, %s, NOW(), NOW())
+                    """, (
+                        variant_sku,
+                        quantity,
+                        0,
+                        max(1, item['reorder_level'] // total_variants),
+                        max(10, item['max_stock'] // total_variants),
+                        item['cost_per_unit'],
+                    ))
+                    variant_count += 1
+                
+                print(f"  ✅ Created {len(colors)} color variants for: {base_sku}")
+                seeded += 1
+            
             else:
-                # No colors/sizes - create base SKU inventory only
+                # Case 4: No colors/sizes - create base SKU inventory only
                 cursor.execute("""
                     INSERT INTO inventory_items 
                     (sku, quantity_available, quantity_reserved, reorder_level, max_stock, cost_per_unit, created_at, updated_at)
