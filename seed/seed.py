@@ -50,14 +50,38 @@ def generate_variant_sku(base_sku: str, color: str = None, size: str = None) -> 
 
 
 def generate_variants(base_sku: str, colors: list, sizes: list) -> list:
-    """Generate all variant SKUs for color/size combinations."""
+    """Generate all variant SKUs for color/size combinations.
+    
+    Handles 3 cases:
+    - Colors AND sizes: variant per color-size pair
+    - Sizes only (e.g., books): variant per size
+    - Colors only: variant per color
+    """
     variants = []
-    for color in colors:
+    if colors and sizes:
+        # Case 1: Both colors and sizes
+        for color in colors:
+            for size in sizes:
+                variants.append({
+                    'sku': generate_variant_sku(base_sku, color, size),
+                    'color': color,
+                    'size': size
+                })
+    elif sizes and not colors:
+        # Case 2: Sizes only (e.g., books with Paperback/Hardcover/Audiobook)
         for size in sizes:
             variants.append({
-                'sku': generate_variant_sku(base_sku, color, size),
-                'color': color,
+                'sku': generate_variant_sku(base_sku, None, size),
+                'color': None,
                 'size': size
+            })
+    elif colors and not sizes:
+        # Case 3: Colors only
+        for color in colors:
+            variants.append({
+                'sku': generate_variant_sku(base_sku, color, None),
+                'color': color,
+                'size': None
             })
     return variants
 
