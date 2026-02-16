@@ -2,12 +2,14 @@
 """
 xshopai Database Seeder
 Seeds users, products, and inventory data for demo purposes.
+Can also clear all databases for a clean slate.
 
 Usage:
     python seed.py                  # Seed all data
     python seed.py --users          # Seed users only
     python seed.py --products       # Seed products only
     python seed.py --inventory      # Seed inventory only
+    python seed.py --clear          # Clear ALL databases (clean slate)
 """
 
 import os
@@ -20,7 +22,12 @@ from datetime import datetime, timezone
 # Load environment variables
 try:
     from dotenv import load_dotenv
-    load_dotenv()
+    # Load .env.dev first (development), then .env (production fallback)
+    env_path = Path(__file__).parent / '.env.dev'
+    if env_path.exists():
+        load_dotenv(env_path)
+    else:
+        load_dotenv()  # Falls back to .env
 except ImportError:
     pass
 
@@ -85,16 +92,310 @@ def hash_password(password: str) -> str:
         return hashes.get(password, hashes['guest'])
 
 
-def seed_users(clear_all=False):
-    """Seed users into user-service MongoDB. Always clears existing demo data first."""
+# =============================================================================
+# DATABASE CLEARING FUNCTIONS
+# =============================================================================
+
+def clear_mongodb(url: str, db_name: str, service_name: str):
+    """Clear all collections in a MongoDB database."""
+    try:
+        from pymongo import MongoClient
+    except ImportError:
+        print(f"  ⚠️  pymongo not installed, skipping {service_name}")
+        return False
+    
+    try:
+        client = MongoClient(url, serverSelectionTimeoutMS=5000)
+        client.admin.command('ping')
+        
+        # Parse database name from URL if not provided
+        if not db_name:
+            db_name = url.split('/')[-1].split('?')[0]
+        
+        db = client[db_name]
+        collections = db.list_collection_names()
+        
+        total_deleted = 0
+        for collection_name in collections:
+            # Skip system collections
+            if collection_name.startswith('system.'):
+                continue
+            result = db[collection_name].delete_many({})
+            total_deleted += result.deleted_count
+        
+        client.close()
+        print(f"  ✅ {service_name}: Cleared {total_deleted} documents from {len(collections)} collections")
+        return True
+        
+    except Exception as e:
+        print(f"  ❌ {service_name}: Failed to clear - {e}")
+        return False
+
+
+def clear_postgres(host: str, port: int, user: str, password: str, database: str, service_name: str):
+    """Clear all tables in a PostgreSQL database."""
+    try:
+        import psycopg2
+    except ImportError:
+        print(f"  ⚠️  psycopg2 not installed, skipping {service_name}")
+        return False
+    
+    try:
+        conn = psycopg2.connect(
+            host=host,
+            port=port,
+            user=user,
+            password=password,
+            database=database
+        )
+        cursor = conn.cursor()
+        
+        # Get all table names (excluding system tables and alembic_version)
+        cursor.execute("""
+            SELECT tablename FROM pg_tables 
+            WHERE schemaname = 'public' AND tablename != 'alembic_version'
+        """)
+        tables = [row[0] for row in cursor.fetchall()]
+        
+        # Disable FK constraints and truncate all tables
+        cursor.execute("SET session_replication_role = 'replica';")
+        for table in tables:
+            cursor.execute(f'TRUNCATE TABLE "{table}" CASCADE;')
+        cursor.execute("SET session_replication_role = 'origin';")
+        
+        conn.commit()
+        cursor.close()
+        conn.close()
+        
+        print(f"  ✅ {service_name}: Cleared {len(tables)} tables")
+        return True
+        
+    except Exception as e:
+        print(f"  ❌ {service_name}: Failed to clear - {e}")
+        return False
+
+
+def clear_mysql(host: str, port: int, user: str, password: str, database: str, service_name: str):
+    """Clear all tables in a MySQL database."""
+    try:
+        import mysql.connector
+    except ImportError:
+        print(f"  ⚠️  mysql-connector-python not installed, skipping {service_name}")
+        return False
+    
+    try:
+        conn = mysql.connector.connect(
+            host=host,
+            port=port,
+            user=user,
+            password=password,
+            database=database
+        )
+        cursor = conn.cursor()
+        
+        # Get all table names (excluding alembic_version)
+        cursor.execute("""
+            SELECT table_name FROM information_schema.tables 
+            WHERE table_schema = %s AND table_name != 'alembic_version'
+        """, (database,))
+        tables = [row[0] for row in cursor.fetchall()]
+        
+        # Disable FK constraints and delete from all tables
+        cursor.execute("SET FOREIGN_KEY_CHECKS = 0;")
+        for table in tables:
+            cursor.execute(f"TRUNCATE TABLE `{table}`;")
+        cursor.execute("SET FOREIGN_KEY_CHECKS = 1;")
+        
+        conn.commit()
+        cursor.close()
+        conn.close()
+        
+        print(f"  ✅ {service_name}: Cleared {len(tables)} tables")
+        return True
+        
+    except Exception as e:
+        print(f"  ❌ {service_name}: Failed to clear - {e}")
+        return False
+
+
+def clear_sqlserver(host: str, port: int, user: str, password: str, database: str, service_name: str):
+    """Clear all tables in a SQL Server database using pymssql."""
+    try:
+        import pymssql
+    except ImportError:
+        print(f"  ⚠️  pymssql not installed, skipping {service_name}")
+        return False
+    
+    try:
+        # First connect to master to check if database exists
+        master_conn = pymssql.connect(
+            server=host,
+            port=port,
+            user=user,
+            password=password,
+            database='master'
+        )
+        cursor = master_conn.cursor()
+        cursor.execute(f"SELECT name FROM sys.databases WHERE name = '{database}'")
+        db_exists = cursor.fetchone() is not None
+        cursor.close()
+        master_conn.close()
+        
+        if not db_exists:
+            print(f"  ⏭️  {service_name}: Database '{database}' does not exist (nothing to clear)")
+            return True  # Consider this a success - nothing to clear
+        
+        # Now connect to the actual database and clear it
+        conn = pymssql.connect(
+            server=host,
+            port=port,
+            user=user,
+            password=password,
+            database=database
+        )
+        cursor = conn.cursor()
+        
+        # Get all user tables (excluding system tables and __EFMigrations)
+        cursor.execute("""
+            SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES 
+            WHERE TABLE_TYPE = 'BASE TABLE' 
+            AND TABLE_NAME != '__EFMigrationsHistory'
+            AND TABLE_SCHEMA = 'dbo'
+        """)
+        tables = [row[0] for row in cursor.fetchall()]
+        
+        # Disable FK constraints and delete from all tables
+        for table in tables:
+            cursor.execute(f"ALTER TABLE [{table}] NOCHECK CONSTRAINT ALL;")
+        
+        for table in tables:
+            cursor.execute(f"DELETE FROM [{table}];")
+        
+        for table in tables:
+            cursor.execute(f"ALTER TABLE [{table}] CHECK CONSTRAINT ALL;")
+        
+        conn.commit()
+        cursor.close()
+        conn.close()
+        
+        print(f"  ✅ {service_name}: Cleared {len(tables)} tables")
+        return True
+        
+    except Exception as e:
+        print(f"  ❌ {service_name}: Failed to clear - {e}")
+        return False
+
+
+def clear_all_databases():
+    """Clear all databases across all services for a clean slate."""
+    print("=" * 60)
+    print("🧹 Clearing ALL Databases")
+    print("=" * 60)
+    print()
+    
+    results = []
+    
+    # MongoDB Services
+    print("🍃 MongoDB Databases:")
+    
+    # User Service MongoDB
+    user_url = os.environ.get('USER_MONGODB_URI', 
+        'mongodb://admin:admin123@localhost:27018/user_service_db?authSource=admin')
+    results.append(('user-service', clear_mongodb(user_url, 'user_service_db', 'user-service')))
+    
+    # Product Service MongoDB
+    product_url = os.environ.get('PRODUCT_MONGODB_URI',
+        'mongodb://admin:admin123@localhost:27019/product_service_db?authSource=admin')
+    results.append(('product-service', clear_mongodb(product_url, 'product_service_db', 'product-service')))
+    
+    # Review Service MongoDB
+    review_url = os.environ.get('REVIEW_MONGODB_URI',
+        'mongodb://admin:admin123@localhost:27020/review_service_db?authSource=admin')
+    results.append(('review-service', clear_mongodb(review_url, 'review_service_db', 'review-service')))
+    
+    print()
+    
+    # PostgreSQL Services
+    print("🐘 PostgreSQL Databases:")
+    
+    # Audit Service PostgreSQL (matches audit-service env vars)
+    results.append(('audit-service', clear_postgres(
+        host=os.environ.get('POSTGRES_HOST', 'localhost'),
+        port=int(os.environ.get('POSTGRES_PORT', 5434)),
+        user=os.environ.get('POSTGRES_USER', 'admin'),
+        password=os.environ.get('POSTGRES_PASSWORD', 'admin123'),
+        database=os.environ.get('POSTGRES_DB', 'audit_service_db'),
+        service_name='audit-service'
+    )))
+    
+    print()
+    
+    # MySQL Services
+    print("🐬 MySQL Databases:")
+    
+    # Inventory Service MySQL (matches inventory-service env vars)
+    # Parse MYSQL_SERVER_CONNECTION format: mysql+pymysql://user:pass@host:port
+    mysql_conn = os.environ.get('MYSQL_SERVER_CONNECTION', 'mysql+pymysql://admin:admin123@localhost:3306')
+    db_name = os.environ.get('INVENTORY_DB_NAME', 'inventory_service_db')
+    
+    try:
+        # Parse: mysql+pymysql://user:pass@host:port
+        conn_parts = mysql_conn.replace('mysql+pymysql://', '').replace('mysql://', '').split('@')
+        user_pass = conn_parts[0].split(':')
+        host_port = conn_parts[1].split(':')
+        
+        results.append(('inventory-service', clear_mysql(
+            host=host_port[0],
+            port=int(host_port[1]) if len(host_port) > 1 else 3306,
+            user=user_pass[0],
+            password=user_pass[1] if len(user_pass) > 1 else '',
+            database=db_name,
+            service_name='inventory-service'
+        )))
+    except Exception as e:
+        print(f"  ❌ inventory-service: Failed to parse connection string - {e}")
+        results.append(('inventory-service', False))
+    
+    print()
+    
+    # SQL Server Services
+    print("🗄️  SQL Server Databases:")
+    
+    # Order Service SQL Server
+    results.append(('order-service', clear_sqlserver(
+        host=os.environ.get('ORDER_SQLSERVER_HOST', 'localhost'),
+        port=int(os.environ.get('ORDER_SQLSERVER_PORT', 1434)),
+        user=os.environ.get('ORDER_SQLSERVER_USER', 'sa'),
+        password=os.environ.get('ORDER_SQLSERVER_PASSWORD', 'Admin123!'),
+        database=os.environ.get('ORDER_SQLSERVER_DB', 'order_service_db'),
+        service_name='order-service'
+    )))
+    
+    # Payment Service SQL Server
+    results.append(('payment-service', clear_sqlserver(
+        host=os.environ.get('PAYMENT_SQLSERVER_HOST', 'localhost'),
+        port=int(os.environ.get('PAYMENT_SQLSERVER_PORT', 1433)),
+        user=os.environ.get('PAYMENT_SQLSERVER_USER', 'sa'),
+        password=os.environ.get('PAYMENT_SQLSERVER_PASSWORD', 'Admin123!'),
+        database=os.environ.get('PAYMENT_SQLSERVER_DB', 'payment_service_db'),
+        service_name='payment-service'
+    )))
+    
+    print()
+    
+    return results
+
+
+def seed_users():
+    """Seed users into user-service MongoDB. Clears existing demo data first."""
     try:
         from pymongo import MongoClient
     except ImportError:
         print("❌ pymongo not installed. Run: pip install pymongo")
         return False
 
-    # Connect to user-service MongoDB
-    mongo_url = os.environ.get('USER_SERVICE_DATABASE_URL', 'mongodb://admin:admin123@localhost:27018/user_service_db?authSource=admin')
+    # Connect to user-service MongoDB (uses USER_MONGODB_URI like the service uses MONGODB_URI)
+    mongo_url = os.environ.get('USER_MONGODB_URI', 'mongodb://admin:admin123@localhost:27018/user_service_db?authSource=admin')
     print(f"📡 Connecting to user-service MongoDB...")
     
     try:
@@ -106,17 +407,12 @@ def seed_users(clear_all=False):
         db = client[db_name]
         users_collection = db['users']
         
-        # Clear data
+        # Clear demo users first
         users_data = load_json('users.json')
-        if clear_all:
-            result = users_collection.delete_many({})
-            print(f"  🧹 Cleared ALL {result.deleted_count} users")
-        else:
-            # Clear only demo users
-            demo_emails = [u['email'] for u in users_data]
-            result = users_collection.delete_many({'email': {'$in': demo_emails}})
-            if result.deleted_count:
-                print(f"  🧹 Cleared {result.deleted_count} existing demo users")
+        demo_emails = [u['email'] for u in users_data]
+        result = users_collection.delete_many({'email': {'$in': demo_emails}})
+        if result.deleted_count:
+            print(f"  🧹 Cleared {result.deleted_count} existing demo users")
         
         # Seed users
         seeded = 0
@@ -145,16 +441,16 @@ def seed_users(clear_all=False):
         return False
 
 
-def seed_products(clear_all=False):
-    """Seed products into product-service MongoDB. Always clears existing demo data first."""
+def seed_products():
+    """Seed products into product-service MongoDB. Clears existing demo data first."""
     try:
         from pymongo import MongoClient
     except ImportError:
         print("❌ pymongo not installed. Run: pip install pymongo")
         return False
 
-    # Connect to product-service MongoDB
-    mongo_url = os.environ.get('PRODUCT_SERVICE_DATABASE_URL', 'mongodb://admin:admin123@localhost:27019/product_service_db?authSource=admin')
+    # Connect to product-service MongoDB (uses PRODUCT_MONGODB_URI like the service uses MONGODB_URI)
+    mongo_url = os.environ.get('PRODUCT_MONGODB_URI', 'mongodb://admin:admin123@localhost:27019/product_service_db?authSource=admin')
     print(f"📡 Connecting to product-service MongoDB...")
     
     try:
@@ -165,17 +461,12 @@ def seed_products(clear_all=False):
         db = client[db_name]
         products_collection = db['products']
         
-        # Clear data
+        # Clear demo products first
         products_data = load_json('products.json')
-        if clear_all:
-            result = products_collection.delete_many({})
-            print(f"  🧹 Cleared ALL {result.deleted_count} products")
-        else:
-            # Clear only demo products
-            demo_skus = [p['sku'] for p in products_data]
-            result = products_collection.delete_many({'sku': {'$in': demo_skus}})
-            if result.deleted_count:
-                print(f"  🧹 Cleared {result.deleted_count} existing demo products")
+        demo_skus = [p['sku'] for p in products_data]
+        result = products_collection.delete_many({'sku': {'$in': demo_skus}})
+        if result.deleted_count:
+            print(f"  🧹 Cleared {result.deleted_count} existing demo products")
         
         # Seed products
         seeded = 0
@@ -317,10 +608,10 @@ def _ensure_inventory_schema(cursor, conn):
     print("  ✅ Schema created (inventory_items, reservations, stock_movements)")
 
 
-def seed_inventory(clear_all=False):
+def seed_inventory():
     """Seed inventory into inventory-service MySQL with variant SKUs.
     
-    Always clears existing demo data first.
+    Clears existing demo data first.
     Distributes base quantity evenly across all color/size combinations.
     
     Automatically creates the required tables if they don't exist,
@@ -332,26 +623,29 @@ def seed_inventory(clear_all=False):
         print("❌ mysql-connector-python not installed. Run: pip install mysql-connector-python")
         return False
 
-    # Parse MySQL connection from environment
-    db_url = os.environ.get('INVENTORY_SERVICE_DATABASE_URL', 'mysql://admin:admin123@localhost:3306/inventory_service_db')
+    # Parse MySQL connection from environment (matches inventory-service format)
+    # MYSQL_SERVER_CONNECTION=mysql+pymysql://user:pass@host:port
+    # INVENTORY_DB_NAME=inventory_service_db
+    mysql_conn = os.environ.get('MYSQL_SERVER_CONNECTION', 'mysql+pymysql://admin:admin123@localhost:3306')
+    db_name = os.environ.get('INVENTORY_DB_NAME', 'inventory_service_db')
     
-    # Parse connection string: mysql://user:pass@host:port/database
+    # Parse connection string: mysql+pymysql://user:pass@host:port
     try:
-        parts = db_url.replace('mysql://', '').split('@')
+        conn_str = mysql_conn.replace('mysql+pymysql://', '').replace('mysql://', '')
+        parts = conn_str.split('@')
         user_pass = parts[0].split(':')
-        host_port_db = parts[1].split('/')
-        host_port = host_port_db[0].split(':')
+        host_port = parts[1].split(':')
         
         config = {
             'user': user_pass[0],
             'password': user_pass[1] if len(user_pass) > 1 else '',
             'host': host_port[0],
             'port': int(host_port[1]) if len(host_port) > 1 else 3306,
-            'database': host_port_db[1].split('?')[0] if len(host_port_db) > 1 else 'inventory',
+            'database': db_name,
         }
     except Exception as e:
         print(f"❌ Failed to parse database URL: {e}")
-        print(f"   URL format expected: mysql://user:pass@host:port/database")
+        print(f"   URL format expected: mysql+pymysql://user:pass@host:port")
         return False
     
     print(f"📡 Connecting to inventory-service MySQL ({config['host']}:{config['port']})...")
@@ -381,26 +675,17 @@ def seed_inventory(clear_all=False):
                         'sizes': sizes
                     }
         
-        # Clear data
-        if clear_all:
-            # Clear ALL inventory data (must respect FK constraints)
-            cursor.execute("DELETE FROM stock_movements")
-            cursor.execute("DELETE FROM reservations")
-            cursor.execute("DELETE FROM inventory_items")
-            conn.commit()
-            print(f"  🧹 Cleared ALL inventory data")
-        else:
-            # Clear only demo inventory (base + variant SKUs)
-            demo_skus = [item['sku'] for item in inventory_data]
-            for base_sku in demo_skus:
-                cursor.execute("DELETE FROM stock_movements WHERE sku = %s OR sku LIKE %s",
-                              (base_sku, f"{base_sku}-%"))
-                cursor.execute("DELETE FROM reservations WHERE sku = %s OR sku LIKE %s",
-                              (base_sku, f"{base_sku}-%"))
-                cursor.execute("DELETE FROM inventory_items WHERE sku = %s OR sku LIKE %s", 
-                              (base_sku, f"{base_sku}-%"))
-            conn.commit()
-            print(f"  🧹 Cleared existing demo inventory items (base + variants)")
+        # Clear demo inventory first (base + variant SKUs)
+        demo_skus = [item['sku'] for item in inventory_data]
+        for base_sku in demo_skus:
+            cursor.execute("DELETE FROM stock_movements WHERE sku = %s OR sku LIKE %s",
+                          (base_sku, f"{base_sku}-%"))
+            cursor.execute("DELETE FROM reservations WHERE sku = %s OR sku LIKE %s",
+                          (base_sku, f"{base_sku}-%"))
+            cursor.execute("DELETE FROM inventory_items WHERE sku = %s OR sku LIKE %s", 
+                          (base_sku, f"{base_sku}-%"))
+        conn.commit()
+        print(f"  🧹 Cleared existing demo inventory items (base + variants)")
         
         # Seed inventory with variant SKUs
         seeded = 0
@@ -552,16 +837,32 @@ def main():
     parser.add_argument('--users', action='store_true', help='Seed users only')
     parser.add_argument('--products', action='store_true', help='Seed products only')
     parser.add_argument('--inventory', action='store_true', help='Seed inventory only')
-    parser.add_argument('--clear-all', action='store_true', help='Clear ALL data before seeding (not just demo data)')
+    parser.add_argument('--clear', action='store_true', help='Clear ALL databases (clean slate)')
     args = parser.parse_args()
+    
+    # If --clear flag is set, clear all databases and exit
+    if args.clear:
+        results = clear_all_databases()
+        
+        # Summary
+        print("=" * 60)
+        print("📋 Clear Summary:")
+        success_count = sum(1 for _, success in results if success)
+        fail_count = sum(1 for _, success in results if not success)
+        for name, success in results:
+            status = "✅ Cleared" if success else "❌ Failed/Skipped"
+            print(f"   {name}: {status}")
+        print("=" * 60)
+        print()
+        print(f"🧹 {success_count} databases cleared, {fail_count} failed/skipped")
+        print()
+        sys.exit(0 if fail_count == 0 else 1)
     
     # If no specific target, seed all
     seed_all = not (args.users or args.products or args.inventory)
     
     print("=" * 60)
     print("🌱 xshopai Database Seeder")
-    if args.clear_all:
-        print("⚠️  CLEAR ALL MODE: Will delete ALL data before seeding!")
     print("=" * 60)
     print()
     
@@ -569,17 +870,17 @@ def main():
     
     if seed_all or args.users:
         print("🔹 Seeding Users...")
-        results.append(('Users', seed_users(clear_all=args.clear_all)))
+        results.append(('Users', seed_users()))
         print()
     
     if seed_all or args.products:
         print("🔹 Seeding Products...")
-        results.append(('Products', seed_products(clear_all=args.clear_all)))
+        results.append(('Products', seed_products()))
         print()
     
     if seed_all or args.inventory:
         print("🔹 Seeding Inventory...")
-        results.append(('Inventory', seed_inventory(clear_all=args.clear_all)))
+        results.append(('Inventory', seed_inventory()))
         print()
     
     # Summary

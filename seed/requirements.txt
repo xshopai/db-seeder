@@ -1,6 +1,11 @@
 # Database connectors
-pymongo>=4.0.0
-mysql-connector-python>=8.0.0
+pymongo>=4.0.0           # MongoDB (user, product, review services)
+mysql-connector-python>=8.0.0  # MySQL (inventory service)
+psycopg2-binary>=2.9.0   # PostgreSQL (audit service)
+pymssql>=2.2.0           # SQL Server (order, payment services) - no driver needed
 
 # Password hashing
 bcrypt>=4.0.0
+
+# Environment variables
+python-dotenv>=1.0.0
