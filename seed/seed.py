@@ -310,6 +310,37 @@ def clear_sqlserver(host: str, port: int, user: str, password: str, database: st
         return False
 
 
+def clear_redis(host: str, port: int, password: str = None, service_name: str = 'redis'):
+    """Clear all keys in a Redis database."""
+    try:
+        import redis
+    except ImportError:
+        print(f"  ⚠️  redis not installed, skipping {service_name}")
+        return False
+    
+    try:
+        r = redis.Redis(
+            host=host,
+            port=port,
+            password=password if password else None,
+            decode_responses=True
+        )
+        r.ping()  # Test connection
+        
+        # Get count of keys before clearing
+        key_count = r.dbsize()
+        
+        # FLUSHDB clears the current database
+        r.flushdb()
+        
+        print(f"  ✅ {service_name}: Cleared {key_count} keys")
+        return True
+        
+    except Exception as e:
+        print(f"  ❌ {service_name}: Failed to clear - {e}")
+        return False
+
+
 def clear_all_databases():
     """Clear all databases across all services for a clean slate."""
     print("=" * 60)
@@ -403,6 +434,19 @@ def clear_all_databases():
         password=os.environ.get('PAYMENT_SQLSERVER_PASSWORD', 'Admin123!'),
         database=os.environ.get('PAYMENT_SQLSERVER_DB', 'payment_service_db'),
         service_name='payment-service'
+    )))
+    
+    print()
+    
+    # Redis Services
+    print("🔴 Redis Databases:")
+    
+    # Cart Service Redis
+    results.append(('cart-service', clear_redis(
+        host=os.environ.get('REDIS_HOST', 'localhost'),
+        port=int(os.environ.get('REDIS_PORT', 6379)),
+        password=os.environ.get('REDIS_PASSWORD', 'redis_dev_pass_123'),
+        service_name='cart-service'
     )))
     
     print()
