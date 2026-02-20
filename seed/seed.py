@@ -470,8 +470,8 @@ def seed_users():
         client = MongoClient(mongo_url, serverSelectionTimeoutMS=5000)
         client.admin.command('ping')  # Test connection
         
-        # Parse database name from URL
-        db_name = mongo_url.split('/')[-1].split('?')[0] or 'user-service'
+        # Use env var or parse from URL (Cosmos DB URLs don't have db in path)
+        db_name = os.environ.get('USER_MONGODB_DB_NAME') or mongo_url.split('/')[-1].split('?')[0] or 'user_service_db'
         db = client[db_name]
         users_collection = db['users']
         
@@ -525,7 +525,8 @@ def seed_products():
         client = MongoClient(mongo_url, serverSelectionTimeoutMS=5000)
         client.admin.command('ping')
         
-        db_name = mongo_url.split('/')[-1].split('?')[0] or 'product-service'
+        # Use env var or default matching product-service convention
+        db_name = os.environ.get('PRODUCT_MONGODB_DB_NAME') or mongo_url.split('/')[-1].split('?')[0] or 'product_service_db'
         db = client[db_name]
         products_collection = db['products']
         
