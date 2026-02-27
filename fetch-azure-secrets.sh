@@ -6,6 +6,13 @@
 # This script retrieves connection strings from Azure Key Vault and generates
 # a .env file for the seeder project.
 #
+# Resource naming follows the same pattern as GitHub Actions workflows:
+#   - Resource Group: rg-xshopai-{suffix}
+#   - Key Vault: kv-xshopai-{suffix}
+#   - Cosmos DB: cosmos-xshopai-{suffix}
+#   - MySQL: mysql-xshopai-{suffix}
+#   etc.
+#
 # Prerequisites:
 #   - Azure CLI installed and logged in (az login)
 #   - Access to the Key Vault (Key Vault Secrets User or Officer role)
@@ -13,10 +20,14 @@
 # Usage:
 #   ./fetch-azure-secrets.sh [environment] [suffix]
 #
+#   environment: dev (default) or prod
+#   suffix: Resource suffix (optional, defaults to 'development' for dev, 'production' for prod)
+#
 # Examples:
-#   ./fetch-azure-secrets.sh dev 1six    # Uses kv-xshopai-dev-1six
-#   ./fetch-azure-secrets.sh dev 5292    # Uses kv-xshopai-dev-5292
-#   ./fetch-azure-secrets.sh prod abc    # Uses kv-xshopai-prod-abc
+#   ./fetch-azure-secrets.sh                     # Prompts for environment, uses default suffix
+#   ./fetch-azure-secrets.sh dev                 # Uses kv-xshopai-development
+#   ./fetch-azure-secrets.sh prod                # Uses kv-xshopai-production
+#   ./fetch-azure-secrets.sh dev my-suffix       # Uses kv-xshopai-my-suffix (override)
 # =============================================================================
 
 set -e
@@ -34,12 +45,39 @@ print_warning() { echo -e "${YELLOW}⚠ ${NC}$1"; }
 print_error() { echo -e "${RED}✗ ${NC}$1"; }
 
 # Parse arguments
-ENVIRONMENT="${1:-dev}"
-SUFFIX="${2:-1six}"
+ENVIRONMENT="$1"
+INPUT_SUFFIX="$2"
 
-# Derive resource names
-KEY_VAULT="kv-xshopai-${ENVIRONMENT}-${SUFFIX}"
-COSMOS_ACCOUNT="cosmos-xshopai-${ENVIRONMENT}-${SUFFIX}"
+# Prompt for environment if not provided
+if [ -z "$ENVIRONMENT" ]; then
+    echo -n "Enter environment (dev/prod) [dev]: "
+    read -r ENVIRONMENT
+    ENVIRONMENT="${ENVIRONMENT:-dev}"
+fi
+
+# Validate environment
+if [ "$ENVIRONMENT" != "dev" ] && [ "$ENVIRONMENT" != "prod" ]; then
+    print_error "Invalid environment: $ENVIRONMENT. Must be 'dev' or 'prod'."
+    exit 1
+fi
+
+# Resolve suffix: manual override > default based on environment
+# This matches GitHub Actions logic: DEPLOY_SUFFIX_DEV / DEPLOY_SUFFIX_PROD
+if [ -n "$INPUT_SUFFIX" ]; then
+    SUFFIX="$INPUT_SUFFIX"
+    print_info "Using manual suffix override: $SUFFIX"
+elif [ "$ENVIRONMENT" = "prod" ]; then
+    SUFFIX="production"
+    print_info "Using default prod suffix: $SUFFIX"
+else
+    SUFFIX="development"
+    print_info "Using default dev suffix: $SUFFIX"
+fi
+
+# Derive resource names (matches GitHub Actions + Bicep naming: xshopai-{suffix})
+KEY_VAULT="kv-xshopai-${SUFFIX}"
+COSMOS_ACCOUNT="cosmos-xshopai-${SUFFIX}"
+RESOURCE_GROUP="rg-xshopai-${SUFFIX}"
 
 # Script directory
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -53,6 +91,7 @@ echo "============================================================"
 echo ""
 print_info "Environment: ${ENVIRONMENT}"
 print_info "Suffix: ${SUFFIX}"
+print_info "Resource Group: ${RESOURCE_GROUP}"
 print_info "Key Vault: ${KEY_VAULT}"
 echo ""
 
@@ -99,107 +138,205 @@ cosmos_with_db() {
     echo "${conn/\/\?/\/${dbname}\?}"
 }
 
-# Helper function to convert MySQL connection for Node.js and insert database name
-# Input: mysql+pymysql://user:pass@host:port?params  Output: mysql://user:pass@host:port/dbname?params
-mysql_with_db() {
+# Helper function to parse PostgreSQL connection string
+# Input: postgresql://user:pass@host:port/db?params
+# Outputs values to global variables
+parse_postgres_connection() {
     local conn="$1"
-    local dbname="$2"
-    # 1. Replace mysql+pymysql:// with mysql://
-    conn="${conn/mysql+pymysql:\/\//mysql:\/\/}"
-    # 2. Insert database name before ? (host:port?params -> host:port/dbname?params)
-    echo "${conn/\?/\/${dbname}\?}"
+    # Remove protocol prefix
+    local without_proto="${conn#*://}"
+    # Extract user:pass
+    local userpass="${without_proto%%@*}"
+    PARSED_PG_USER="${userpass%%:*}"
+    PARSED_PG_PASSWORD="${userpass#*:}"
+    # Extract host:port/db
+    local hostportdb="${without_proto#*@}"
+    local hostport="${hostportdb%%/*}"
+    PARSED_PG_HOST="${hostport%%:*}"
+    PARSED_PG_PORT="${hostport#*:}"
+    # Extract db (remove query params)
+    local dbpart="${hostportdb#*/}"
+    PARSED_PG_DB="${dbpart%%\?*}"
+}
+
+# Helper function to parse SQL Server connection string
+# Input: Server=host,port;Database=db;User Id=user;Password=pass;...
+# Outputs values to global variables
+parse_sqlserver_connection() {
+    local conn="$1"
+    # Extract Server (may be host,port or just host)
+    local server=$(echo "$conn" | grep -oP 'Server=\K[^;]+' || echo "")
+    if [[ "$server" == *","* ]]; then
+        PARSED_SQL_HOST="${server%%,*}"
+        PARSED_SQL_PORT="${server#*,}"
+    else
+        PARSED_SQL_HOST="$server"
+        PARSED_SQL_PORT="1433"
+    fi
+    # Extract other fields
+    PARSED_SQL_DB=$(echo "$conn" | grep -oP 'Database=\K[^;]+' || echo "")
+    PARSED_SQL_USER=$(echo "$conn" | grep -oP 'User Id=\K[^;]+' || echo "")
+    PARSED_SQL_PASSWORD=$(echo "$conn" | grep -oP 'Password=\K[^;]+' || echo "")
+}
+
+# Helper function to parse MySQL connection string
+# Input: mysql+pymysql://user:pass@host:port/db?params or mysql://user:pass@host:port/db?params
+parse_mysql_connection() {
+    local conn="$1"
+    # Remove protocol prefix (handle both mysql:// and mysql+pymysql://)
+    local without_proto="${conn#*://}"
+    # Extract user:pass
+    local userpass="${without_proto%%@*}"
+    PARSED_MYSQL_USER="${userpass%%:*}"
+    PARSED_MYSQL_PASSWORD="${userpass#*:}"
+    # Extract host:port/db
+    local hostportdb="${without_proto#*@}"
+    local hostport="${hostportdb%%/*}"
+    PARSED_MYSQL_HOST="${hostport%%:*}"
+    PARSED_MYSQL_PORT="${hostport#*:}"
+    # Remove port if it contains query params
+    PARSED_MYSQL_PORT="${PARSED_MYSQL_PORT%%\?*}"
+    # Default port if not specified
+    [ -z "$PARSED_MYSQL_PORT" ] && PARSED_MYSQL_PORT="3306"
 }
 
 echo ""
 print_info "Fetching secrets from Key Vault..."
 echo ""
 
-# Fetch all connection strings (using new lower-kebab-case naming convention)
-COSMOS_CONNECTION=$(get_secret "cosmos-account-connection")
-MYSQL_CONNECTION=$(get_secret "mysql-server-connection")
-POSTGRES_CONNECTION=$(get_secret "postgres-server-connection")
-SQL_CONNECTION=$(get_secret "sql-server-connection")
-SERVICEBUS_CONNECTION=$(get_secret "servicebus-connection")
-APPINSIGHTS_CONNECTION=$(get_secret "appinsights-connection")
+# Fetch MongoDB connection strings (stored per-service in Key Vault)
+USER_MONGODB_URI=$(get_secret "user-service-mongodb-uri")
+PRODUCT_MONGODB_URI=$(get_secret "product-service-mongodb-uri")
+REVIEW_MONGODB_URI=$(get_secret "review-service-mongodb-uri")
+
+# Fetch MySQL credentials and connection
+MYSQL_CONNECTION=$(get_secret "inventory-service-mysql-server")
+MYSQL_ADMIN_USER=$(get_secret "mysql-admin-user")
+MYSQL_ADMIN_PASSWORD=$(get_secret "mysql-admin-password")
+
+# Fetch PostgreSQL credentials
+POSTGRES_CONNECTION=$(get_secret "audit-service-postgres-url")
+POSTGRES_ADMIN_USER=$(get_secret "postgres-admin-user")
+POSTGRES_ADMIN_PASSWORD=$(get_secret "postgres-admin-password")
+
+# Fetch SQL Server connections
+ORDER_SQL_CONNECTION=$(get_secret "order-service-sql-connection")
+PAYMENT_SQL_CONNECTION=$(get_secret "payment-service-sql-connection")
+SQL_ADMIN_USER=$(get_secret "sql-admin-user")
+SQL_ADMIN_PASSWORD=$(get_secret "sql-admin-password")
+
+# Fetch Redis
+REDIS_HOST=$(get_secret "redis-host")
+REDIS_KEY=$(get_secret "redis-key")
+
+# Fetch other services
+APPINSIGHTS_CONNECTION=$(get_secret "appinsights-connection-string")
 
 # Report what we found
-[ -n "$COSMOS_CONNECTION" ] && print_success "Retrieved: Cosmos DB connection" || print_warning "Missing: Cosmos DB connection"
+[ -n "$USER_MONGODB_URI" ] && print_success "Retrieved: User MongoDB" || print_warning "Missing: User MongoDB"
+[ -n "$PRODUCT_MONGODB_URI" ] && print_success "Retrieved: Product MongoDB" || print_warning "Missing: Product MongoDB"
+[ -n "$REVIEW_MONGODB_URI" ] && print_success "Retrieved: Review MongoDB" || print_warning "Missing: Review MongoDB"
 [ -n "$MYSQL_CONNECTION" ] && print_success "Retrieved: MySQL connection" || print_warning "Missing: MySQL connection"
 [ -n "$POSTGRES_CONNECTION" ] && print_success "Retrieved: PostgreSQL connection" || print_warning "Missing: PostgreSQL connection"
-[ -n "$SQL_CONNECTION" ] && print_success "Retrieved: SQL Server connection" || print_warning "Missing: SQL Server connection"
-[ -n "$SERVICEBUS_CONNECTION" ] && print_success "Retrieved: Service Bus connection" || print_warning "Missing: Service Bus connection"
-[ -n "$APPINSIGHTS_CONNECTION" ] && print_success "Retrieved: App Insights connection" || print_warning "Missing: App Insights connection"
+[ -n "$ORDER_SQL_CONNECTION" ] && print_success "Retrieved: Order SQL connection" || print_warning "Missing: Order SQL connection"
+[ -n "$PAYMENT_SQL_CONNECTION" ] && print_success "Retrieved: Payment SQL connection" || print_warning "Missing: Payment SQL connection"
+[ -n "$REDIS_HOST" ] && print_success "Retrieved: Redis" || print_warning "Missing: Redis"
+[ -n "$APPINSIGHTS_CONNECTION" ] && print_success "Retrieved: App Insights" || print_warning "Missing: App Insights"
+
+# Parse PostgreSQL connection string into components
+if [ -n "$POSTGRES_CONNECTION" ]; then
+    parse_postgres_connection "$POSTGRES_CONNECTION"
+fi
+
+# Parse SQL Server connections into components
+if [ -n "$ORDER_SQL_CONNECTION" ]; then
+    parse_sqlserver_connection "$ORDER_SQL_CONNECTION"
+    ORDER_SQL_HOST="$PARSED_SQL_HOST"
+    ORDER_SQL_PORT="$PARSED_SQL_PORT"
+    ORDER_SQL_DB="$PARSED_SQL_DB"
+fi
+
+if [ -n "$PAYMENT_SQL_CONNECTION" ]; then
+    parse_sqlserver_connection "$PAYMENT_SQL_CONNECTION"
+    PAYMENT_SQL_HOST="$PARSED_SQL_HOST"
+    PAYMENT_SQL_PORT="$PARSED_SQL_PORT"
+    PAYMENT_SQL_DB="$PARSED_SQL_DB"
+fi
 
 # Generate .env file
 echo ""
 print_info "Generating .env file..."
 
 cat > "$ENV_FILE" << EOF
-# =============================================================================
+# ============================================
 # XShopAI Seeder - Azure Environment Configuration
-# =============================================================================
+# ============================================
 # Auto-generated by fetch-azure-secrets.sh
 # Generated: $(date -Iseconds)
+# Environment: ${ENVIRONMENT}
+# Suffix: ${SUFFIX}
+# Resource Group: ${RESOURCE_GROUP}
 # Key Vault: ${KEY_VAULT}
-# =============================================================================
+# ============================================
 
-# -----------------------------------------------------------------------------
-# MongoDB Services (Cosmos DB with MongoDB API)
-# -----------------------------------------------------------------------------
-# user-service: User profiles, addresses, payment methods, preferences
-USER_SERVICE_DATABASE_URL=$(cosmos_with_db "$COSMOS_CONNECTION" "user_service_db")
+# ============================================
+# MongoDB Services (uses MONGODB_URI like the services)
+# ============================================
 
-# auth-service: Authentication tokens, sessions, refresh tokens
-AUTH_SERVICE_DATABASE_URL=$(cosmos_with_db "$COSMOS_CONNECTION" "auth_service_db")
+# User Service MongoDB (Cosmos DB)
+USER_MONGODB_URI=${USER_MONGODB_URI}
 
-# product-service: Product catalog, categories, reviews aggregates
-PRODUCT_SERVICE_DATABASE_URL=$(cosmos_with_db "$COSMOS_CONNECTION" "product_service_db")
+# Product Service MongoDB (Cosmos DB)
+PRODUCT_MONGODB_URI=${PRODUCT_MONGODB_URI}
 
-# review-service: Product reviews, ratings, review flags
-REVIEW_SERVICE_DATABASE_URL=$(cosmos_with_db "$COSMOS_CONNECTION" "review_service_db")
+# Review Service MongoDB (Cosmos DB)
+REVIEW_MONGODB_URI=${REVIEW_MONGODB_URI}
 
-# cart-service: Shopping carts (if using MongoDB)
-CART_SERVICE_DATABASE_URL=$(cosmos_with_db "$COSMOS_CONNECTION" "cart_service_db")
+# ============================================
+# MySQL Services (uses MYSQL_SERVER_CONNECTION like inventory-service)
+# ============================================
 
-# -----------------------------------------------------------------------------
-# MySQL Services (Azure MySQL Flexible Server)
-# -----------------------------------------------------------------------------
-# inventory-service: Inventory items, stock movements, reservations
-INVENTORY_SERVICE_DATABASE_URL=$(mysql_with_db "$MYSQL_CONNECTION" "inventory_service_db")
+# Inventory Service MySQL
+MYSQL_SERVER_CONNECTION=${MYSQL_CONNECTION}
+INVENTORY_DB_NAME=inventory_service_db
 
-# -----------------------------------------------------------------------------
-# PostgreSQL Services (Azure PostgreSQL Flexible Server)
-# -----------------------------------------------------------------------------
-# audit-service: Audit logs, audit events
-AUDIT_SERVICE_DATABASE_URL=${POSTGRES_CONNECTION}/audit_service_db
+# ============================================
+# PostgreSQL Services (uses POSTGRES_* like audit-service)
+# ============================================
 
-# -----------------------------------------------------------------------------
-# SQL Server Services (Azure SQL Database)
-# -----------------------------------------------------------------------------
-# order-service: Orders, order items, order status history
-ORDER_SERVICE_DATABASE_URL=${SQL_CONNECTION}
+# Audit Service PostgreSQL
+POSTGRES_HOST=${PARSED_PG_HOST:-}
+POSTGRES_PORT=${PARSED_PG_PORT:-5432}
+POSTGRES_USER=${POSTGRES_ADMIN_USER:-${PARSED_PG_USER:-}}
+POSTGRES_PASSWORD=${POSTGRES_ADMIN_PASSWORD:-${PARSED_PG_PASSWORD:-}}
+POSTGRES_DB=audit_service_db
 
-# -----------------------------------------------------------------------------
-# Messaging (Azure Service Bus)
-# -----------------------------------------------------------------------------
-SERVICEBUS_CONNECTION_STRING=${SERVICEBUS_CONNECTION}
+# ============================================
+# SQL Server Services
+# ============================================
 
-# -----------------------------------------------------------------------------
-# Observability (Azure Application Insights)
-# -----------------------------------------------------------------------------
-APPLICATIONINSIGHTS_CONNECTION_STRING=${APPINSIGHTS_CONNECTION}
+# Order Service SQL Server
+ORDER_SQLSERVER_HOST=${ORDER_SQL_HOST:-}
+ORDER_SQLSERVER_PORT=${ORDER_SQL_PORT:-1433}
+ORDER_SQLSERVER_USER=${SQL_ADMIN_USER:-}
+ORDER_SQLSERVER_PASSWORD=${SQL_ADMIN_PASSWORD:-}
+ORDER_SQLSERVER_DB=${ORDER_SQL_DB:-order_service_db}
 
-# -----------------------------------------------------------------------------
-# Seeder Configuration
-# -----------------------------------------------------------------------------
-# Set to 'true' to enable verbose logging during seeding
-SEED_VERBOSE=false
+# Payment Service SQL Server
+PAYMENT_SQLSERVER_HOST=${PAYMENT_SQL_HOST:-}
+PAYMENT_SQLSERVER_PORT=${PAYMENT_SQL_PORT:-1433}
+PAYMENT_SQLSERVER_USER=${SQL_ADMIN_USER:-}
+PAYMENT_SQLSERVER_PASSWORD=${SQL_ADMIN_PASSWORD:-}
+PAYMENT_SQLSERVER_DB=${PAYMENT_SQL_DB:-payment_service_db}
 
-# Set to 'true' to clear existing data before seeding
-SEED_CLEAR_EXISTING=false
+# ============================================
+# Redis Services
+# ============================================
 
-# Batch size for bulk inserts
-SEED_BATCH_SIZE=100
+# Cart Service Redis
+REDIS_HOST=${REDIS_HOST:-}
+REDIS_PORT=6380
+REDIS_PASSWORD=${REDIS_KEY:-}
 EOF
 
 print_success "Generated .env file: $ENV_FILE"
@@ -218,10 +355,10 @@ check_env_var() {
     fi
 }
 
-check_env_var "USER_SERVICE_DATABASE_URL"
-check_env_var "PRODUCT_SERVICE_DATABASE_URL"
-check_env_var "INVENTORY_SERVICE_DATABASE_URL"
-check_env_var "ORDER_SERVICE_DATABASE_URL"
+check_env_var "USER_MONGODB_URI"
+check_env_var "PRODUCT_MONGODB_URI"
+check_env_var "MYSQL_SERVER_CONNECTION"
+check_env_var "POSTGRES_HOST"
 
 if [ $MISSING_COUNT -gt 0 ]; then
     print_warning "$MISSING_COUNT connection strings are missing or invalid"
@@ -232,38 +369,33 @@ fi
 
 echo ""
 echo "============================================================"
-echo "  Setup Complete!"
+echo "  Setup Complete! (${ENVIRONMENT} / ${SUFFIX})"
 echo "============================================================"
 echo ""
-print_info "To seed the databases, run:"
+print_info "Generated .env with the following services:"
 echo ""
-echo "  cd $(dirname "$ENV_FILE")"
-echo "  npm install"
-echo "  npm run seed"
-echo ""
-print_info "Or seed specific services:"
-echo ""
-echo "  npm run seed:users"
-echo "  npm run seed:products"
-echo "  npm run seed:inventory"
-echo "  npm run seed:orders"
-echo ""
-
-# Show summary of what's available
-echo "============================================================"
-echo "  Connection Summary"
-echo "============================================================"
-if [ -n "$COSMOS_CONNECTION" ]; then
-    echo "  ✓ MongoDB (Cosmos): user, auth, product, review, cart services"
+if [ -n "$USER_MONGODB_URI" ]; then
+    echo "  MongoDB (Cosmos DB):"
+    echo "    - USER_MONGODB_URI"
+    echo "    - PRODUCT_MONGODB_URI"
+    echo "    - REVIEW_MONGODB_URI"
 fi
 if [ -n "$MYSQL_CONNECTION" ]; then
-    echo "  ✓ MySQL: inventory-service"
+    echo "  MySQL:"
+    echo "    - MYSQL_SERVER_CONNECTION + INVENTORY_DB_NAME"
 fi
 if [ -n "$POSTGRES_CONNECTION" ]; then
-    echo "  ✓ PostgreSQL: audit-service"
+    echo "  PostgreSQL:"
+    echo "    - POSTGRES_HOST/PORT/USER/PASSWORD/DB"
 fi
-if [ -n "$SQL_CONNECTION" ]; then
-    echo "  ✓ SQL Server: order-service"
+if [ -n "$ORDER_SQL_CONNECTION" ]; then
+    echo "  SQL Server:"
+    echo "    - ORDER_SQLSERVER_* and PAYMENT_SQLSERVER_*"
 fi
+if [ -n "$REDIS_HOST" ]; then
+    echo "  Redis:"
+    echo "    - REDIS_HOST/PORT/PASSWORD"
+fi
+echo ""
 echo "============================================================"
 echo ""
